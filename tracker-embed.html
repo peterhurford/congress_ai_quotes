@@ -53,32 +53,6 @@
   isolation: isolate;
 }
 
-@media (prefers-color-scheme: dark) {
-  .tracker-root {
-    --tr-bg: #0f0e0c;
-    --tr-bg-card: #1a1815;
-    --tr-text: #f5f2ec;
-    --tr-text-secondary: #9c9288;
-    --tr-text-muted: #635e59;
-    --tr-border: #2c2822;
-    --tr-border-light: #201e18;
-    --tr-red: #d96050;
-    --tr-red-bg: #1e0f0c;
-    --tr-red-border: #3d1c18;
-    --tr-red-muted: #7a3830;
-    --tr-blue: #5294c8;
-    --tr-blue-bg: #0c1520;
-    --tr-blue-border: #1c3858;
-    --tr-blue-muted: #2e6090;
-    --tr-neutral: #7a7570;
-    --tr-neutral-bg: #181613;
-    --tr-neutral-border: #252220;
-    --tr-timeline: #2e2a22;
-    --tr-shadow: 0 1px 4px rgba(0,0,0,0.5), 0 4px 16px rgba(0,0,0,0.4);
-    --tr-shadow-hover: 0 2px 8px rgba(0,0,0,0.65), 0 8px 28px rgba(0,0,0,0.55);
-  }
-}
-
 /* Grain texture — absolute (not fixed) so it doesn't cover the host site */
 .tracker-root::before {
   content: '';
@@ -89,16 +63,6 @@
   pointer-events: none;
   z-index: 9999;
   opacity: 0.5;
-}
-
-@media (prefers-color-scheme: dark) {
-  .tracker-root::before {
-    opacity: 0.9;
-  }
-
-  .tracker-root .chart-logo {
-    filter: invert(1);
-  }
 }
 
 /* HEADER */
@@ -677,6 +641,7 @@ const RAW_DATA = [
 ["🔴 Sen. Marsha Blackburn (R-TN)","<b>It is the sense of Congress that rapidly advancing artificial intelligence capabilities present both opportunities and significant risks to national security</b>, public safety, economic competitiveness, civil liberties, and healthy labor and other markets, and that, as artificial intelligence advances toward <b>human-level capabilities in virtually all domains</b>, the United States must establish a secure testing and evaluation program to generate data-driven options for managing emerging risks.","https://www.blackburn.senate.gov/2025/12/technology/blackburn-unveils-national-policy-framework-for-artificial-intelligence","TRUMP AMERICA AI Act","2025-12-19"],
 ["🔴 Sen. Shelley Moore Capito (R-WV)","I think part of our problem is if we legislate today in this area, we're not going to pick up what I learned day before yesterday <b>the new thing that's coming which is superintelligent AI</b>, that's smarter than anybody in this room and all of us put together.","https://www.commerce.senate.gov/2026/3/liability-or-deniability-platform-power-as-section-230-turns-30","Section 230 Hearing","2026-03-18"],
 ["🔴 Sen. Josh Hawley (R-MO)","<b>It is the sense of Congress that rapidly advancing artificial intelligence capabilities present both opportunities and significant risks to national security</b>, public safety, economic competitiveness, civil liberties, and healthy labor and other markets, and that, as artificial intelligence advances toward <b>human-level capabilities in virtually all domains</b>, the United States must establish a secure testing and evaluation program to generate data-driven options for managing emerging risks.","https://www.hawley.senate.gov/hawley-blumenthal-introduce-bipartisan-ai-evaluation-legislation-to-put-americans-first/","AI Risk Evaluation Act","2025-09-29"],
+["🔴 Sen. Josh Hawley (R-MO)","Ms. Toner, can I just come back to something that I think you said [...] that American AI companies are working as hard and as fast as they can to try to develop technology that will <b>displace many millions of workers and potentially pose existential risks</b>. Now that's my gloss, maybe you wanna correct the record exactly as you said it before. I thought that was <b>very interesting and very important</b>.","https://www.judiciary.senate.gov/committee-activity/hearings/stealth-stealing-chinas-ongoing-theft-of-us-innovation-04-22-2026","Stealth Stealing: China's Ongoing Theft of US Innovation","2026-04-22"],
 ["🔴 Sen. Mike Lee (R-UT)","AI will at some point <b>conclude that *we* are a huge mistake</b>","https://x.com/BasedMikeLee/status/1994244471798813033","","2025-11-27"],
 ["🔴 Sen. John Kennedy (R-LA)","Permit me to share with you three hypotheses that I would like you to assume for the moment to be true... Hypothesis number 3... there is likely a berserk wing of the artificial intelligence community that intentionally or unintentionally could use artificial intelligence to <b>kill all of us and hurt us the entire time that we are dying</b>... Please tell me in plain English two or three reforms, regulations, if any, that you would implement if you were queen or king for a day...","https://www.judiciary.senate.gov/committee-activity/hearings/oversight-of-ai-rules-for-artificial-intelligence","2023 Sam Altman hearing.","2023-05-16"],
 ["🔴 Rep. Andy Biggs (R-AZ)","At what point do we no longer see computational decision-making with a human first mover, and you have an algorithmically iterated process...at some point, it won't be a human that's the first mover anymore, it'll be the algorithm itself. And how long before we get there? How do we prevent the crime and provide the deterrence that is necessary?\n\nSo with that bizarre question, but acknowledging that we're actually moving so rapidly that we probably thought by 2050 you'd be getting to <b>artificial superintelligence</b>, but it looks like maybe before 2030 you're going to be in artificial superintelligence.","https://www.youtube.com/watch?v=AU-4QHtCkxU","House Judiciary Committee hearing; preventing criminal exploitation of AI.","2025-07-16"],
