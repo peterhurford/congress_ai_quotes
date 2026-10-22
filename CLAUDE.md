@@ -1,6 +1,6 @@
 # congress_ai_quotes workflow notes
 
-## Adding quotes to tracker-embed.html
+## Adding quotes to index.html
 
 Entries in `RAW_DATA` use the format:
 `["{emoji} {Name} ({Party-State})", "{quote with <b>bold</b>}", "{source URL}", "{context / hearing name}", "{YYYY-MM-DD}"]`
@@ -20,4 +20,4 @@ The context field is also rendered below the source link as a footnote. When the
 
 ### Updating totals
 
-The hero banner at the top of `tracker-embed.html` shows total member count plus R/D breakdown. Update these whenever a new member (not just a new quote from an existing member) is added or when a member leaves Congress.
+The hero banner at the top of `index.html` shows total member count plus R/D breakdown. Update these whenever a new member (not just a new quote from an existing member) is added or when a member leaves Congress.
