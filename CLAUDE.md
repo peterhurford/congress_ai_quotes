@@ -5,7 +5,7 @@
 Entries in `RAW_DATA` use the format:
 `["{emoji} {Name} ({Party-State})", "{quote with <b>bold</b>}", "{source URL}", "{context / hearing name}", "{YYYY-MM-DD}"]`
 
-- 🔴 = Republican, 🔵 = Democrat
+- 🔴 = Republican, 🔵 = Democrat, 🟣 = Independent
 - Keep quotes grouped by party, then alphabetical by name within party.
 
 ### Source labels

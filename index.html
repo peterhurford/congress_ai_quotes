@@ -1,7 +1,27 @@
-<meta charset="utf-8">
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Congress on Superintelligence — AIPN</title>
+<!-- Load Roboto the same way the live site / team page does -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Source+Sans+3:wght@300;400;500;600&family=JetBrains+Mono:wght@400&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+<style>
+  body { margin: 0; background: #fff; }
+  @media (prefers-color-scheme: dark) { body { background: #0d1017; } }
+</style>
+</head>
+<body>
+
+<!-- ============================================================
+     Congress-on-Superintelligence tracker, restyled to match the
+     AIPN team page: white canvas, Georgia names, Roboto 300 body,
+     navy (#002679) accent. Same content + behavior; new skin only.
+     Styles are scoped under .tracker-root. Paste from the wrapper
+     <div class="tracker-root"> down into the Elementor HTML block.
+     ============================================================ -->
 
 <style>
 /* All styles scoped to .tracker-root to avoid conflicts with the host site */
@@ -15,54 +35,92 @@
 }
 
 .tracker-root {
-  /* CSS variables scoped here instead of :root */
-  --tr-bg: #faf9f7;
+  /* Team-page palette: white canvas, Georgia headings, Roboto 300 body,
+     navy (#002679) accent. Red = Republican, navy = Democrat. */
+  --tr-bg: #ffffff;
   --tr-bg-card: #ffffff;
-  --tr-text: #1a1a1a;
-  --tr-text-secondary: #5a5a5a;
-  --tr-text-muted: #8a8a8a;
-  --tr-border: #e4e0db;
-  --tr-border-light: #f0ece7;
-  --tr-red: #c0392b;
-  --tr-red-bg: #fdf2f0;
-  --tr-red-border: #f0c8c2;
-  --tr-red-muted: #e8a89e;
-  --tr-blue: #2c5f8a;
-  --tr-blue-bg: #eef4fa;
-  --tr-blue-border: #b8d4ea;
-  --tr-blue-muted: #8fb8d8;
-  --tr-neutral: #6b6b6b;
-  --tr-neutral-bg: #f5f4f2;
-  --tr-neutral-border: #d5d0ca;
-  --tr-timeline: #d5d0ca;
-  --tr-shadow: 0 1px 3px rgba(0,0,0,0.04), 0 4px 12px rgba(0,0,0,0.03);
-  --tr-shadow-hover: 0 2px 8px rgba(0,0,0,0.06), 0 8px 24px rgba(0,0,0,0.06);
-  --tr-grain: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.03'/%3E%3C/svg%3E");
+  --tr-bg-raised: #ffffff;
+  --tr-text: #101010;
+  --tr-heading: #0D1821;
+  --tr-text-secondary: #3d4552;
+  --tr-text-muted: #525a68;
+  --tr-border: rgba(13,24,33,0.20);
+  --tr-border-light: rgba(13,24,33,0.14);
+  --tr-accent: #002679;
+  --tr-focus: rgba(0,38,121,0.18);
+  --tr-red: #d80024;
+  --tr-red-bg: rgba(216,0,36,0.06);
+  --tr-red-border: rgba(216,0,36,0.30);
+  --tr-red-muted: #b3001e;
+  --tr-blue: #002679;
+  --tr-blue-bg: rgba(0,38,121,0.06);
+  --tr-blue-border: rgba(0,38,121,0.30);
+  --tr-blue-muted: #002679;
+  --tr-ind: #6b3fa0;
+  --tr-ind-bg: rgba(107,63,160,0.06);
+  --tr-ind-border: rgba(107,63,160,0.30);
+  --tr-ind-muted: #5a3488;
+  --tr-neutral: #5d646b;
+  --tr-neutral-bg: rgba(0,0,0,0.05);
+  --tr-neutral-border: rgba(0,0,0,0.14);
+  --tr-timeline: rgba(13,24,33,0.26);
+  --tr-border-strong: rgba(13,24,33,0.34);
+  --tr-border-active: #002679;
+  --tr-logo-filter: none;
+  --tr-shadow: none;
+  --tr-shadow-hover: none;
 
-  /* Body-level styles moved to the wrapper */
-  font-family: 'Source Sans 3', -apple-system, sans-serif;
-  font-size: 18px; /* base for em units below */
+  font-family: 'Roboto', system-ui, 'Helvetica Neue', Arial, sans-serif;
+  font-size: 18px;
   background: var(--tr-bg);
   color: var(--tr-text);
   line-height: 1.6;
   -webkit-font-smoothing: antialiased;
-
-  /* Contain the grain overlay's stacking context */
   position: relative;
   isolation: isolate;
 }
 
-/* Grain texture — absolute (not fixed) so it doesn't cover the host site */
-.tracker-root::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background-image: var(--tr-grain);
-  background-repeat: repeat;
-  pointer-events: none;
-  z-index: 9999;
-  opacity: 0.5;
+/* DARK MODE — same team-style design language (Georgia headings, Roboto body,
+   accent links), on a dark ink canvas. Blue/accent brightened to read on dark;
+   red brightened for the Republican signal. Auto-switches with the viewer's OS. */
+@media (prefers-color-scheme: dark) {
+  .tracker-root {
+    --tr-bg: #0d1017;
+    --tr-bg-card: #161b26;
+    --tr-bg-raised: #12151d;
+    --tr-text: #e6e9ee;
+    --tr-heading: #f5f7fa;
+    --tr-text-secondary: #b6becb;
+    --tr-text-muted: #98a2b3;
+    --tr-border: rgba(255,255,255,0.16);
+    --tr-border-light: rgba(255,255,255,0.10);
+    --tr-accent: #6f9bf2;
+    --tr-focus: rgba(111,155,242,0.30);
+    --tr-red: #ff4f68;
+    --tr-red-bg: rgba(255,79,104,0.10);
+    --tr-red-border: rgba(255,79,104,0.35);
+    --tr-red-muted: #ff7085;
+    --tr-blue: #6f9bf2;
+    --tr-blue-bg: rgba(111,155,242,0.12);
+    --tr-blue-border: rgba(111,155,242,0.40);
+    --tr-blue-muted: #9bb8f7;
+    --tr-ind: #b48cff;
+    --tr-ind-bg: rgba(180,140,255,0.12);
+    --tr-ind-border: rgba(180,140,255,0.40);
+    --tr-ind-muted: #c9adff;
+    --tr-neutral: #98a2b3;
+    --tr-timeline: rgba(255,255,255,0.18);
+    --tr-border-strong: rgba(255,255,255,0.30);
+    --tr-border-active: #6f9bf2;
+    --tr-logo-filter: invert(1) brightness(1.8);
+    --tr-shadow: none;
+    --tr-shadow-hover: none;
+  }
+  /* Roboto 300 reads too thin as light-on-dark — bump quote weight for legibility */
+  .tracker-root .card-quote { font-weight: 400; }
 }
+
+/* Grain texture removed — vintage/warm-paper tell (destinkify Design Tier 1) */
 
 /* HEADER */
 .tracker-root .hero {
@@ -73,14 +131,19 @@
 }
 
 .tracker-root .hero h1 {
-  font-family: 'Playfair Display', Georgia, serif;
-  font-size: clamp(2.2em, 5vw, 3.4em);
+  font-family: Georgia, 'Times New Roman', serif;
+  font-size: clamp(1.9em, 4vw, 2.7em);
   font-weight: 700;
-  line-height: 1.15;
-  color: var(--tr-text);
+  line-height: 1.1;
+  color: var(--tr-heading);
   margin-bottom: 1.5em;
   letter-spacing: -0.02em;
 }
+
+/* Accent the party counts in the hero lede — red/blue as signal */
+.tracker-root .hero-intro .count-rep { color: var(--tr-red-muted); }
+.tracker-root .hero-intro .count-dem { color: var(--tr-blue-muted); }
+.tracker-root .hero-intro .count-ind { color: var(--tr-ind-muted); }
 
 .tracker-root .hero-intro {
   font-size: 1.3em;
@@ -121,6 +184,7 @@
 
 .tracker-root .legend-dot.rep { background: var(--tr-red); }
 .tracker-root .legend-dot.dem { background: var(--tr-blue); }
+.tracker-root .legend-dot.ind { background: var(--tr-ind); }
 .tracker-root .legend-dot.other { background: var(--tr-neutral); }
 
 /* FILTER */
@@ -135,27 +199,28 @@
 }
 
 .tracker-root .filter-btn {
-  font-family: 'Source Sans 3', sans-serif;
+  font-family: 'Roboto', sans-serif;
   font-size: 0.8em;
   font-weight: 500;
   padding: 0.4em 1em;
   border: 1px solid var(--tr-border);
-  border-radius: 100px;
+  border-radius: 6px;
   background: transparent;
   color: var(--tr-text-secondary);
   cursor: pointer;
-  transition: all 0.2s ease;
+  transition: all 0.2s cubic-bezier(0.22,0.61,0.36,1);
 }
 
 .tracker-root .filter-btn:hover {
-  border-color: var(--tr-text-muted);
+  border-color: var(--tr-border-strong);
+  background: var(--tr-bg-card);
   color: var(--tr-text);
 }
 
 .tracker-root .filter-btn.active {
-  background: var(--tr-text);
-  color: var(--tr-bg);
-  border-color: var(--tr-text);
+  background: var(--tr-bg-card);
+  color: var(--tr-text);
+  border-color: var(--tr-border-active);
 }
 
 /* CUMULATIVE CHART */
@@ -167,9 +232,9 @@
 
 .tracker-root .chart-container {
   position: relative;
-  background: var(--tr-bg-card);
+  background: var(--tr-bg-raised);
   border: 1px solid var(--tr-border);
-  border-radius: 10px;
+  border-radius: 12px;
   padding: 0.75em 0.75em 0.5em;
   box-shadow: var(--tr-shadow);
   overflow: hidden;
@@ -177,18 +242,21 @@
 
 .tracker-root .chart-logo {
   position: absolute;
-  top: 10px;
-  left: 10px;
+  top: 20px;
+  left: 22px;
   height: clamp(29px, 6.4vw, 58px);
   width: auto;
-  opacity: 0.85;
+  opacity: 0.9;
+  /* Dark mode inverts the black wordmark to white; light mode leaves it black
+     (swap src to the brand's wordmark-white.png when available) */
+  filter: var(--tr-logo-filter);
   z-index: 2;
   pointer-events: none;
 }
 
 .tracker-root #chart-svg {
   width: 100%;
-  height: 420px;
+  height: 445px;
   display: block;
   overflow: visible;
   cursor: crosshair;
@@ -269,9 +337,11 @@
 }
 
 .tracker-root .year-marker-text {
-  font-family: 'Playfair Display', serif;
-  font-size: 1.4em;
+  font-family: 'Roboto', sans-serif;
+  font-size: 0.8em;
   font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
   color: var(--tr-text-muted);
   position: relative;
   display: inline-block;
@@ -303,13 +373,11 @@
 }
 
 /* QUOTE CARD */
+/* Entrance fade-up animation removed (destinkify: default Claude motion tell) */
 .tracker-root .quote-card {
   position: relative;
   padding-left: 2em;
   margin-bottom: 1.5em;
-  opacity: 0;
-  transform: translateY(16px);
-  animation: tracker-fadeUp 0.5s ease forwards;
 }
 
 @media (min-width: 640px) {
@@ -330,12 +398,13 @@
 
 @media (min-width: 640px) {
   .tracker-root .quote-card .dot {
-    left: calc(5em);
+    left: 80px;
   }
 }
 
 .tracker-root .quote-card.rep .dot { background: var(--tr-red); }
 .tracker-root .quote-card.dem .dot { background: var(--tr-blue); }
+.tracker-root .quote-card.ind .dot { background: var(--tr-ind); }
 .tracker-root .quote-card.other .dot { background: var(--tr-neutral); }
 
 .tracker-root .quote-card:hover .dot {
@@ -343,10 +412,12 @@
 }
 
 .tracker-root .card-date {
-  font-family: 'JetBrains Mono', monospace;
-  font-size: 0.7em;
+  font-family: 'Roboto', sans-serif;
+  font-size: 0.66em;
+  font-weight: 400;
+  text-transform: uppercase;
   color: var(--tr-text-muted);
-  letter-spacing: 0.04em;
+  letter-spacing: 0.08em;
   position: relative;
   top: 0;
 }
@@ -355,7 +426,7 @@
   .tracker-root .card-date {
     position: absolute;
     left: 0;
-    top: 1.35em;
+    top: 2em;
     width: 4.5em;
     text-align: right;
   }
@@ -364,9 +435,9 @@
 .tracker-root .card-inner {
   background: var(--tr-bg-card);
   border: 1px solid var(--tr-border);
-  border-radius: 8px;
+  border-radius: 12px;
   padding: 1.25em 1.5em;
-  transition: all 0.25s ease;
+  transition: transform 0.2s cubic-bezier(0.22,0.61,0.36,1), border-color 0.2s ease, box-shadow 0.2s ease;
   margin-top: 0.3em;
   box-shadow: var(--tr-shadow);
 }
@@ -376,12 +447,12 @@
 }
 
 .tracker-root .quote-card:hover .card-inner {
-  box-shadow: var(--tr-shadow-hover);
-  border-color: var(--tr-border);
+  border-color: var(--tr-border-strong);
 }
 
 .tracker-root .quote-card.rep .card-inner { border-left: 3px solid var(--tr-red); }
 .tracker-root .quote-card.dem .card-inner { border-left: 3px solid var(--tr-blue); }
+.tracker-root .quote-card.ind .card-inner { border-left: 3px solid var(--tr-ind); }
 .tracker-root .quote-card.other .card-inner { border-left: 3px solid var(--tr-neutral); }
 
 .tracker-root .card-header {
@@ -393,46 +464,27 @@
 }
 
 .tracker-root .card-name {
-  font-family: 'Source Sans 3', sans-serif;
-  font-weight: 600;
-  font-size: 0.95em;
-  color: var(--tr-text);
-}
-
-.tracker-root .card-party {
-  font-size: 0.65em;
-  font-weight: 600;
-  text-transform: uppercase;
-  letter-spacing: 0.1em;
-  padding: 0.15em 0.5em;
-  border-radius: 3px;
-  flex-shrink: 0;
-}
-
-.tracker-root .quote-card.rep .card-party { color: var(--tr-red); background: var(--tr-red-bg); }
-.tracker-root .quote-card.dem .card-party { color: var(--tr-blue); background: var(--tr-blue-bg); }
-.tracker-root .quote-card.other .card-party { color: var(--tr-neutral); background: var(--tr-neutral-bg); }
-
-.tracker-root .card-quote {
-  font-family: 'Source Sans 3', -apple-system, sans-serif;
-  font-size: 0.95em;
-  line-height: 1.7;
-  color: var(--tr-text);
+  font-family: Georgia, 'Times New Roman', serif;
   font-weight: 400;
-  margin-bottom: 0.75em;
+  font-size: 1.35em;
+  line-height: 1.3;
+  color: var(--tr-heading);
+}
+
+/* Quote text uses the brand's Pullquote treatment: Georgia display serif */
+.tracker-root .card-quote {
+  font-family: 'Roboto', sans-serif;
+  font-size: 1rem;
+  line-height: 1.6;
+  color: var(--tr-text);
+  font-weight: 300;
+  margin-bottom: 0.9em;
   white-space: pre-line;
 }
 
-.tracker-root .card-quote::before {
-  content: '\201C';
-  font-family: 'Playfair Display', Georgia, serif;
-  font-size: 2.2em;
-  font-weight: 700;
-  line-height: 0;
-  vertical-align: -0.3em;
-  margin-right: 0.05em;
-  opacity: 0.3;
-}
+.tracker-root .card-quote b { font-weight: 700; }
+
+/* Decorative oversized quote glyph removed (destinkify Design Tier 4: ornament) */
 
 .tracker-root .card-footer {
   display: flex;
@@ -442,9 +494,9 @@
 }
 
 .tracker-root .card-source {
-  font-size: 0.75em;
-  font-weight: 500;
-  color: var(--tr-text-muted);
+  font-size: 0.78em;
+  font-weight: 600;
+  color: var(--tr-accent);
   text-decoration: none;
   transition: color 0.2s;
   display: inline-flex;
@@ -452,18 +504,17 @@
   gap: 0.3em;
 }
 
-.tracker-root .card-source:hover { color: var(--tr-text); }
+.tracker-root .card-source:hover { color: var(--tr-accent); text-decoration: underline; }
 
 .tracker-root .card-source svg {
   width: 12px;
   height: 12px;
-  opacity: 0.5;
+  opacity: 0.9;
 }
 
 .tracker-root .card-context {
   font-size: 0.72em;
   color: var(--tr-text-muted);
-  font-style: italic;
   line-height: 1.5;
   padding-top: 0.6em;
   margin-top: 0.6em;
@@ -513,13 +564,13 @@
 
   .tracker-root .toolbar {
     padding: 0 1.2em;
-    gap: 0.5em;
-    justify-content: center;
+    gap: 0.7em;
     margin-bottom: 1.5em;
   }
 
   .tracker-root .toolbar-search {
     width: 100%;
+    max-width: none;
     font-size: 0.85em;
     padding: 0.5em 1em;
   }
@@ -578,22 +629,38 @@
   margin: 0 auto 2em;
   padding: 0 2em;
   display: flex;
+  flex-direction: column;
   align-items: center;
-  gap: 0.6em;
+  gap: 0.9em;
+}
+
+.tracker-root .toolbar-filters {
+  display: flex;
   flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 0.6em;
+}
+
+.tracker-root .filter-group {
+  display: flex;
+  align-items: center;
+  gap: 0.45em;
+  flex-shrink: 0;
 }
 
 .tracker-root .toolbar-search {
-  font-family: 'Source Sans 3', sans-serif;
+  font-family: 'Roboto', sans-serif;
   font-size: 0.8em;
   padding: 0.45em 0.9em;
   border: 1px solid var(--tr-border);
-  border-radius: 100px;
+  border-radius: 8px;
   background: var(--tr-bg-card);
   color: var(--tr-text);
   outline: none;
-  width: 160px;
-  transition: border-color 0.2s ease;
+  width: 100%;
+  max-width: 600px;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
 }
 
 .tracker-root .toolbar-search::placeholder {
@@ -601,7 +668,8 @@
 }
 
 .tracker-root .toolbar-search:focus {
-  border-color: var(--tr-text-muted);
+  border-color: var(--tr-accent);
+  box-shadow: 0 0 0 3px var(--tr-focus);
 }
 
 .tracker-root .toolbar-sep {
@@ -612,27 +680,30 @@
 }
 
 .tracker-root .toolbar .filter-btn {
-  font-family: 'Source Sans 3', sans-serif;
-  font-size: 0.75em;
+  font-family: 'Roboto', sans-serif;
+  font-size: 0.72em;
   font-weight: 500;
-  padding: 0.35em 0.85em;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  padding: 0.4em 0.9em;
   border: 1px solid var(--tr-border);
-  border-radius: 100px;
+  border-radius: 6px;
   background: transparent;
   color: var(--tr-text-secondary);
   cursor: pointer;
-  transition: all 0.2s ease;
+  transition: all 0.2s cubic-bezier(0.22,0.61,0.36,1);
 }
 
 .tracker-root .toolbar .filter-btn:hover {
-  border-color: var(--tr-text-muted);
+  border-color: var(--tr-border-strong);
+  background: var(--tr-bg-card);
   color: var(--tr-text);
 }
 
 .tracker-root .toolbar .filter-btn.active {
-  background: var(--tr-text);
-  color: var(--tr-bg);
-  border-color: var(--tr-text);
+  background: transparent;
+  color: var(--tr-accent);
+  border-color: var(--tr-accent);
 }
 </style>
 
@@ -640,7 +711,7 @@
 
 <header class="hero">
   <p class="hero-intro">
-    <strong>39</strong> current members of Congress have publicly discussed AGI, AI superintelligence, AI existential risk, AI loss of control, recursive self-improvement, or the Singularity. And it's bipartisan&mdash;<strong>18 Republicans</strong> and <strong>21 Democrats!</strong>
+    <strong>74</strong> current members of Congress have publicly discussed AGI, AI superintelligence, AI existential risk, AI loss of control, recursive self-improvement, or the Singularity. And it's bipartisan,<br><strong class="count-rep">25 Republicans</strong>, <strong class="count-dem">47 Democrats</strong>, and <strong class="count-ind">2 Independents!</strong>
   </p>
 </header>
 
@@ -654,17 +725,25 @@
 
 <div class="toolbar" id="toolbar">
   <input type="text" class="toolbar-search" id="toolbar-search" placeholder="Search members...">
-  <span class="toolbar-sep"></span>
-  <button class="filter-btn active" data-party="all">All</button>
-  <button class="filter-btn" data-party="dem">D</button>
-  <button class="filter-btn" data-party="rep">R</button>
-  <span class="toolbar-sep"></span>
-  <button class="filter-btn active" data-chamber="all">All</button>
-  <button class="filter-btn" data-chamber="senate">Senate</button>
-  <button class="filter-btn" data-chamber="house">House</button>
-  <span class="toolbar-sep"></span>
-  <button class="filter-btn active" data-sort="desc">Newest</button>
-  <button class="filter-btn" data-sort="asc">Oldest</button>
+  <div class="toolbar-filters">
+    <div class="filter-group" role="group" aria-label="Filter by party">
+      <button class="filter-btn active" data-party="all">All</button>
+      <button class="filter-btn" data-party="dem">D</button>
+      <button class="filter-btn" data-party="rep">R</button>
+<button class="filter-btn" data-party="ind">I</button>
+    </div>
+    <span class="toolbar-sep"></span>
+    <div class="filter-group" role="group" aria-label="Filter by chamber">
+      <button class="filter-btn active" data-chamber="all">All</button>
+      <button class="filter-btn" data-chamber="senate">Senate</button>
+      <button class="filter-btn" data-chamber="house">House</button>
+    </div>
+    <span class="toolbar-sep"></span>
+    <div class="filter-group" role="group" aria-label="Sort order">
+      <button class="filter-btn active" data-sort="desc">Newest</button>
+      <button class="filter-btn" data-sort="asc">Oldest</button>
+    </div>
+  </div>
 </div>
 
 <main class="timeline" id="timeline"></main>
@@ -684,53 +763,99 @@ if (new URLSearchParams(location.search).get('og') === '1') {
 const RAW_DATA = [
 ["🔴 Sen. Jim Banks (R-IN)","AI is likely to be the defining technology of the 21st century. <b>Many experts predict that AI may soon match or surpass human performance across various tasks, including AI research and development itself.</b> [...] Could AI systems become so capable at AI research and development tasks that we experience <b>rapid capability amplification</b>?","https://www.axios.com/2026/03/04/banks-hegseth-ai-steering-committee","Letter","2026-03-04"],
 ["🔴 Sen. Jim Banks (R-IN)","While cyber capabilities are the focus today, the conversation must extend well beyond cyber. AI is improving rapidly. Advanced AI systems are expected to develop increasingly consequential capabilities across <b>military, intelligence, biosecurity, and other national security domains</b>. [...] During the Cold War, atomic weapons introduced a paradigm shift in the geopolitical world order. <b>AI has the potential to do the same.</b> [...] One example [...] would be <b>AI systems that outperform humans in making new breakthroughs in AI and developing increasingly more powerful AI systems</b>. [...] These questions are especially salient as companies pursue <b>artificial superintelligence</b>[. ...] How do we ensure that we have the insight required to assess models not only for cyber capabilities but also in areas like military applications, <b>loss of control to AI systems themselves</b>, automated AI research and development capabilities, and other security domains?","https://x.com/SenatorBanks/status/2054973007957758228","Letter to Trump Administration officials on AI national security risks","2026-05-14"],
-["🔴 Sen. Marsha Blackburn (R-TN)","<b>It is the sense of Congress that rapidly advancing artificial intelligence capabilities present both opportunities and significant risks to national security</b>, public safety, economic competitiveness, civil liberties, and healthy labor and other markets, and that, as artificial intelligence advances toward <b>human-level capabilities in virtually all domains</b>, the United States must establish a secure testing and evaluation program to generate data-driven options for managing emerging risks.","https://www.blackburn.senate.gov/2025/12/technology/blackburn-unveils-national-policy-framework-for-artificial-intelligence","TRUMP AMERICA AI Act","2025-12-19"],
-["🔴 Sen. Shelley Moore Capito (R-WV)","I think part of our problem is if we legislate today in this area, we're not going to pick up what I learned day before yesterday <b>the new thing that's coming which is superintelligent AI</b>, that's smarter than anybody in this room and all of us put together.","https://www.commerce.senate.gov/2026/3/liability-or-deniability-platform-power-as-section-230-turns-30","Section 230 Hearing","2026-03-18"],
-["🔴 Sen. Josh Hawley (R-MO)","<b>It is the sense of Congress that rapidly advancing artificial intelligence capabilities present both opportunities and significant risks to national security</b>, public safety, economic competitiveness, civil liberties, and healthy labor and other markets, and that, as artificial intelligence advances toward <b>human-level capabilities in virtually all domains</b>, the United States must establish a secure testing and evaluation program to generate data-driven options for managing emerging risks.","https://www.hawley.senate.gov/hawley-blumenthal-introduce-bipartisan-ai-evaluation-legislation-to-put-americans-first/","AI Risk Evaluation Act","2025-09-29"],
-["🔴 Sen. Josh Hawley (R-MO)","Ms. Toner, can I just come back to something that I think you said [...] that American AI companies are working as hard and as fast as they can to try to develop technology that will <b>displace many millions of workers and potentially pose existential risks</b>. Now that's my gloss, maybe you wanna correct the record exactly as you said it before. I thought that was <b>very interesting and very important</b>.","https://www.judiciary.senate.gov/committee-activity/hearings/stealth-stealing-chinas-ongoing-theft-of-us-innovation-04-22-2026","Stealth Stealing: China's Ongoing Theft of US Innovation","2026-04-22"],
-["🔴 Sen. Mike Lee (R-UT)","AI will at some point <b>conclude that *we* are a huge mistake</b>","https://x.com/BasedMikeLee/status/1994244471798813033","","2025-11-27"],
-["🔴 Sen. John Kennedy (R-LA)","Permit me to share with you three hypotheses that I would like you to assume for the moment to be true... Hypothesis number 3... there is likely a berserk wing of the artificial intelligence community that intentionally or unintentionally could use artificial intelligence to <b>kill all of us and hurt us the entire time that we are dying</b>... Please tell me in plain English two or three reforms, regulations, if any, that you would implement if you were queen or king for a day...","https://www.judiciary.senate.gov/committee-activity/hearings/oversight-of-ai-rules-for-artificial-intelligence","2023 Sam Altman hearing.","2023-05-16"],
 ["🔴 Rep. Andy Biggs (R-AZ)","At what point do we no longer see computational decision-making with a human first mover, and you have an algorithmically iterated process...at some point, it won't be a human that's the first mover anymore, it'll be the algorithm itself. And how long before we get there? How do we prevent the crime and provide the deterrence that is necessary?\n\nSo with that bizarre question, but acknowledging that we're actually moving so rapidly that we probably thought by 2050 you'd be getting to <b>artificial superintelligence</b>, but it looks like maybe before 2030 you're going to be in artificial superintelligence.","https://www.youtube.com/watch?v=AU-4QHtCkxU","House Judiciary Committee hearing; preventing criminal exploitation of AI.","2025-07-16"],
-["🔴 Rep. Dusty Johnson (R-SD)","Mr. Beall, you noted at the top that maybe we've become numbed by the headlines about all of the dangers of AI. I think that might be true. And yet, honestly, what we've heard today, I suspect, has scared the hell out of many of these committee members. Anybody who doesn't feel urgency around this issue is not paying attention.\nYou noted that this is the most important national security challenge of our time. You noted that <b>if we lose this race, it could trigger a global crisis</b>.","https://www.youtube.com/live/GDNrUZBZDA4?si=J5X6EcYy1t_qcNam&t=3587","Committee on the CCP hearing, Authoritarians and Algorithms: Why U.S. AI Must Lead.","2025-06-25"],
+["🔴 Sen. Marsha Blackburn (R-TN)","<b>It is the sense of Congress that rapidly advancing artificial intelligence capabilities present both opportunities and significant risks to national security</b>, public safety, economic competitiveness, civil liberties, and healthy labor and other markets, and that, as artificial intelligence advances toward <b>human-level capabilities in virtually all domains</b>, the United States must establish a secure testing and evaluation program to generate data-driven options for managing emerging risks.","https://www.blackburn.senate.gov/2025/12/technology/blackburn-unveils-national-policy-framework-for-artificial-intelligence","TRUMP AMERICA AI Act","2025-12-19"],
+["🔴 Rep. Eric Burlison (R-MO)","I'm going to begin by quoting Irving John Good, who was a British mathematician. He is quoted as saying, 'Let an ultra-intelligent machine be defined as a machine that can far surpass all the intellectual activities of any man, however clever. Thus, <b>the first ultra intelligent machine is the last invention that man may ever need to make</b>.'","https://www.youtube.com/live/0ytOZF3cdXw?si=L4NvItJWZAaY9HOU&t=3552","","2025-09-17"],
+["🔴 Sen. Shelley Moore Capito (R-WV)","I think part of our problem is if we legislate today in this area, we're not going to pick up what I learned day before yesterday <b>the new thing that's coming which is superintelligent AI</b>, that's smarter than anybody in this room and all of us put together.","https://www.commerce.senate.gov/2026/3/liability-or-deniability-platform-power-as-section-230-turns-30","Section 230 Hearing","2026-03-18"],
+["🔴 Sen. Bill Cassidy (R-LA)","The first time I’ve understood the manner in which AI should be regulated on a meta level. Read a summary of the article in the thread below. [...] Artificial intelligence and superintelligence are not the same. [...] <b>Superintelligence raises another possibility: Its judgments exceed our ability to evaluate them.</b> Who then governs whom? [...] We hear: “If America doesn't develop superintelligence, China will.” But that assumes whichever nation develops it first will continue to control it. What if neither can? <b>Winning the race to create something ungovernable may not be winning at all.</b> [...] <b>Restrict recursive self-improvement, self-generated goals, and open-ended autonomy.</b> [...] But <b>permanent human control of a superior intelligence capable of adapting to its supervisors may be impossible</b>. [...] We face two choices: <b>Build autonomous superintelligence and depend on judgments we cannot evaluate.</b> Or keep AI answerable to human purposes, judgment, and responsibility. [...] We have to know when to stop.","https://x.com/SenBillCassidy/status/2109671599775588863","Thread on X summarizing Roy Heidelberg’s essay “Intention Is What We Need.”","2026-10-12"],
 ["🔴 Rep. Eli Crane (R-AZ)","Can you clarify to us what <b>singularity</b> means in the past? [...] It's <b>Skynet</b>. Skynet? Is that what we're thinking?","https://www.youtube.com/live/q4iMl7iUD6E?si=VFCKaCLPQWGJH4Mq&t=1632","From a bipartisan roundtable on AI.","2025-07-22"],
 ["🔴 Rep. Eli Crane (R-AZ)","Does anyone on this panel feel or believe in any way as we are going down the road in this AI race <b>we might be simultaneously engineering our own destruction</b>? [...] We're seeing reports that Anthropic's Claude [Mythos] has been deemed too powerful and dangerous for public release and how it could be weaponized against banks, hospitals, energy grids, etc. [...] In the event that this some of this technology was to fall into the wrong hands, what keeps you guys up at night in relation to these powerful AI systems?","https://oversight.house.gov/roundtable/artificial-intelligence-and-american-power-leadership-security-and-prosperity/","AI and American Power roundtable","2026-04-17"],
-["🔴 Rep. John McGuire (R-VA)","Mr. Hammond, you said you think <b>singularity</b>, based on your experience, will be 2026. And, just real quick, Dr. Lee, when do you think we will have that?","https://oversight.house.gov/hearing/shaping-tomorrow-the-future-of-artificial-intelligence/","Shaping Tomorrow: The Future of Artificial Intelligence","2025-09-17"],
-["🔴 Rep. John McGuire (R-VA)","How do we ensure AI does not creep into the kill chain? Because if AI thinks that oh this is a bad idea, it's not moral, they may not know what the commander knows, and <b>we can't have it stop it</b>.","https://oversight.house.gov/roundtable/artificial-intelligence-and-american-power-leadership-security-and-prosperity","AI and American Power roundtable","2026-04-17"],
-["🔴 Rep. Eric Burlison (R-MO)","I'm going to begin by quoting Irving John Good, who was a British mathematician. He is quoted as saying, 'Let an ultra-intelligent machine be defined as a machine that can far surpass all the intellectual activities of any man, however clever. Thus, <b>the first ultra intelligent machine is the last invention that man may ever need to make</b>.'","https://www.youtube.com/live/0ytOZF3cdXw?si=L4NvItJWZAaY9HOU&t=3552","","2025-09-17"],
-["🔴 Rep. Kevin Kiley (R-CA)","This is something that we have to get right, and we only get one shot at. There's a widely shared view that once AI capability crosses a certain threshold, whether that be <b>recursive self-improvement</b> or some other threshold, there's going to be an <b>escape velocity</b>. That has implications for the narrower geopolitical context of which country leads in the technology, but also for the broader idea of, <b>'Is this technology going to be aligned with and beneficial to humanity?'</b>","https://youtu.be/Dny8dVjWS_k?si=Qaf8-Z0nmOD0b8o9&t=249","","2025-09-18"],
+["🔴 Sen. John Curtis (R-UT)","Americans deserve representation in Congress that is not only well-informed on cutting-edge AI development, but also has the wherewithal to cross the aisle and overcome political pressures to address the concerns these technologies pose. [...] That is why we are calling for <b>immediate public hearings</b> to bring lawmakers, model makers, and other stakeholders into the same room and work through solutions that maintain America’s competitive edge in development while ensuring that these technologies serve human interests and <b>remain fully under human control</b>.","https://www.curtis.senate.gov/press-releases/curtis-blunt-rochester-call-for-ai-hearings-regulation/","Joint statement with Sen. Lisa Blunt Rochester.","2026-09-16"],
+["🔴 Rep. Neal Dunn (R-FL)","Mr. Clark, Jack, good to see you again. One of your recent newsletters describing AI, I think it was ChatGPT 4 Claude, \"attempting to avoid being turned off by its chief engineer despite clear instructions to the contrary.\" In fact, in this experiment, Claude <b>attempted to blackmail the chief engineer</b> with damning information he believed to be true. [...] This is a disturbing scenario to people like me.\n\nI'm not sure I feel a lot better, but thank you for your answer.","https://www.congress.gov/event/119th-congress/house-event/118428","Committee on the CCP hearing, Authoritarians and Algorithms: Why U.S. AI Must Lead.","2025-06-25"],
 ["🔴 Rep. Marjorie Taylor Greene (R-GA)","I'm not voting for the development of <b>skynet and the rise of the machines</b> by destroying federalism for 10 years by taking away state rights to regulate and make laws on all AI.","https://x.com/RepMTG/status/1930650431253827806","","2025-06-05"],
+["🔴 Sen. Josh Hawley (R-MO)","<b>It is the sense of Congress that rapidly advancing artificial intelligence capabilities present both opportunities and significant risks to national security</b>, public safety, economic competitiveness, civil liberties, and healthy labor and other markets, and that, as artificial intelligence advances toward <b>human-level capabilities in virtually all domains</b>, the United States must establish a secure testing and evaluation program to generate data-driven options for managing emerging risks.","https://www.hawley.senate.gov/hawley-blumenthal-introduce-bipartisan-ai-evaluation-legislation-to-put-americans-first/","AI Risk Evaluation Act","2025-09-29"],
+["🔴 Sen. Josh Hawley (R-MO)","I notice now that the executives of the AI companies are saying things like, \"Gee, <b>maybe we've built a doomsday machine</b>.\" You have former researchers and employees of these companies coming forward and saying <b>this is an existential threat to humanity</b>. I don't know if that's true or not, but what I do notice is that as soon as the AI executives say \"we've got a real problem here, <b>our product is out of control</b>,\" the very next words out of their mouths are, \"but we're not responsible for it.\"","https://www.hsgac.senate.gov/subcommittees/dmdcc/hearings/rogue-ai-securing-the-homeland-against-ai-agent-attacks/","Senate Homeland Security subcommittee hearing on rogue AI agents.","2026-09-30"],
+["🔴 Rep. Dusty Johnson (R-SD)","Mr. Beall, you noted at the top that maybe we've become numbed by the headlines about all of the dangers of AI. I think that might be true. And yet, honestly, what we've heard today, I suspect, has scared the hell out of many of these committee members. Anybody who doesn't feel urgency around this issue is not paying attention.\nYou noted that this is the most important national security challenge of our time. You noted that <b>if we lose this race, it could trigger a global crisis</b>.","https://www.youtube.com/live/GDNrUZBZDA4?si=J5X6EcYy1t_qcNam&t=3587","Committee on the CCP hearing, Authoritarians and Algorithms: Why U.S. AI Must Lead.","2025-06-25"],
+["🔴 Rep. Mike Johnson (R-LA)","[Asked whether Congress will act on AI before November, after the Anthropic researcher warnings:] This is a very important issue. And it’s not one that we can rush into. [...] Here’s the challenge. We have to put some guardrails, some safety measures in place to ensure that <b>AI doesn’t run away</b>, you know, that we don’t have an <b>out-of-control AGI, artificial general intelligence</b>. But at the same time, we’ve got to make sure that we don’t lose our edge in the global competition on this with China. Because that would be a national security threat.","https://www.nbcnews.com/meet-the-press/transcripts/meet-press-september-13-2026-rcna597477","Speaker of the House, on NBC's Meet the Press.","2026-09-13"],
+["🔴 Sen. John Kennedy (R-LA)","Permit me to share with you three hypotheses that I would like you to assume for the moment to be true... Hypothesis number 3... there is likely a berserk wing of the artificial intelligence community that intentionally or unintentionally could use artificial intelligence to <b>kill all of us and hurt us the entire time that we are dying</b>... Please tell me in plain English two or three reforms, regulations, if any, that you would implement if you were queen or king for a day...","https://www.judiciary.senate.gov/committee-activity/hearings/oversight-of-ai-rules-for-artificial-intelligence","2023 Sam Altman hearing.","2023-05-16"],
+["🔴 Sen. John Kennedy (R-LA)","Here is the risk: AI is supposed to be a tool that human beings have control of to make our lives better. But what happens if the AI model, through what’s called <b>recursive self-improvement</b>, which basically means it’s learning on its own, no longer becomes a tool; it becomes an <b>independent species, separate and apart from human beings that we can’t control</b> because it’s an independent species? And it doesn’t share our values. It doesn’t share human values. Now, that has happened. We’ve read about it in the last three weeks. [...] In my mind, if there is even a <b>1% chance</b> that one of these AI models can shed its nature as a tool and become an independent species and start doing whatever the hell it wants to do, if there’s even a 1% chance, we ought to take it seriously.","https://www.kennedy.senate.gov/public/2026/9/senate-blocks-kennedy-bill-to-require-ai-developers-to-install-an-emergency-kill-switch","Senate floor remarks on his AI Emergency Button Act.","2026-09-16"],
+["🔴 Rep. Kevin Kiley (R-CA)","This is something that we have to get right, and we only get one shot at. There's a widely shared view that once AI capability crosses a certain threshold, whether that be <b>recursive self-improvement</b> or some other threshold, there's going to be an <b>escape velocity</b>. That has implications for the narrower geopolitical context of which country leads in the technology, but also for the broader idea of, <b>'Is this technology going to be aligned with and beneficial to humanity?'</b>","https://youtu.be/Dny8dVjWS_k?si=Qaf8-Z0nmOD0b8o9&t=249","","2025-09-18"],
+["🔴 Sen. Mike Lee (R-UT)","AI will at some point <b>conclude that *we* are a huge mistake</b>","https://x.com/BasedMikeLee/status/1994244471798813033","","2025-11-27"],
+["🔴 Sen. Cynthia Lummis (R-WY)","Industry leaders have publicly acknowledged the development of increasingly powerful artificial intelligence systems, with some discussing the potential for <b>artificial general intelligence and superintelligence</b> that could fundamentally reshape the society of the United States.","https://www.congress.gov/119/bills/s2081/BILLS-119s2081is.htm","RISE Act of 2025; protecting AI developers from civil liability if they comply with certain transparency requirements.","2025-06-12"],
+["🔴 Rep. Anna Paulina Luna (R-FL)","Congress needs to <b>convene a special session on AI</b> and what the future of the U.S. looks like. There are very real impacts to society as we know it. Partisan politics aside, there are <b>massive implications of a race towards super intelligence</b>. This is not a doomer post, as some of the advancements will greatly impact access to healthcare, targeted treatments, increase in safer food production etc… but <b>not enough of Congress is focusing on this</b>. Our first priority is protecting ALL Americans. To include data, privacy, and physical safety. <b>We MUST be ready.</b> This is happening whether or not we want it to.","https://x.com/RepLuna/status/2097641199196684682","","2026-09-09"],
 ["🔴 Rep. Nancy Mace (R-SC)","Some experts warn we are just a few years away from the emergence of <b>artificial general intelligence—or the singularity</b>.\nOthers argue the technology has inherent limitations and we are decades away from the singularity, if it is even possible.\nWe don't know for certain what the future of AI will look like.\nBut what I do know is the future is too important to be left up to chance.\nWe need to do our best to understand what kinds of impact AI can have on our economy and society and develop potential solutions now, before it's too late.","https://oversight.house.gov/release/mace-opens-hearing-on-the-future-of-artificial-intelligence/","Hearing on the future of AI.","2025-09-17"],
 ["🔴 Rep. Nancy Mace (R-SC)","Well, some estimates say the <b>singularity is a thousand days away</b>, some say two thousand days away, but it is rapidly approaching either way.","https://www.youtube.com/live/q4iMl7iUD6E?si=iCRMN_HzV4akjD_v&t=1520","","2025-07-22"],
+["🔴 Rep. John McGuire (R-VA)","Mr. Hammond, you said you think <b>singularity</b>, based on your experience, will be 2026. And, just real quick, Dr. Lee, when do you think we will have that?","https://oversight.house.gov/hearing/shaping-tomorrow-the-future-of-artificial-intelligence/","Shaping Tomorrow: The Future of Artificial Intelligence","2025-09-17"],
+["🔴 Rep. John McGuire (R-VA)","How do we ensure AI does not creep into the kill chain? Because if AI thinks that oh this is a bad idea, it's not moral, they may not know what the commander knows, and <b>we can't have it stop it</b>.","https://oversight.house.gov/roundtable/artificial-intelligence-and-american-power-leadership-security-and-prosperity","AI and American Power roundtable","2026-04-17"],
 ["🔴 Rep. Nathaniel Moran (R-TX)","It's my understanding that AI systems will soon have the capability to conduct its own research and development and effectively <b>write its own rules and programming</b>. AI will be able to predict then the issues it will need to solve and do it in ways sometimes that <b>we can't control</b>.","https://www.youtube.com/live/GDNrUZBZDA4?si=36AeDbUbn9d-Veea&t=5745","Committee on the CCP hearing, Authoritarians and Algorithms: Why U.S. AI Must Lead.","2025-06-25"],
 ["🔴 Rep. Nathaniel Moran (R-TX)","AI models don't just respond to queries from users, but increasingly augment and in some cases even replace the tasks carried out by technical staff at leading AI companies. [...] The implications for U.S. national security, economic competitiveness and civil society could be vast. If these models can learn from their mistakes, adapt autonomously, and eventually <b>design and train their own successors</b>, then who controls that process matters. A lot.","https://thehill.com/opinion/technology/5542073-us-china-ai-competition/","","2025-10-07"],
-["🔴 Rep. Neal Dunn (R-FL)","Mr. Clark, Jack, good to see you again. One of your recent newsletters describing AI, I think it was ChatGPT 4 Claude, \"attempting to avoid being turned off by its chief engineer despite clear instructions to the contrary.\" In fact, in this experiment, Claude <b>attempted to blackmail the chief engineer</b> with damning information he believed to be true. [...] This is a disturbing scenario to people like me.\n\nI'm not sure I feel a lot better, but thank you for your answer.","https://www.congress.gov/event/119th-congress/house-event/118428","Committee on the CCP hearing, Authoritarians and Algorithms: Why U.S. AI Must Lead.","2025-06-25"],
+["🔴 Rep. Jay Obernolte (R-CA)","When you look at the catastrophic risks that could occur through the deployment of AI, one of the things that computer scientists worry about the most is a <b>loss of control caused by recursive self-improvement</b>. And so I think that that's something that definitely should be part of this governance framework.","https://www.youtube.com/watch?v=oo2nnmLYTLs","House Science Committee markup of AI bills.","2026-06-25"],
 ["🔴 Rep. Scott Perry (R-PA)","I suspect that all of you are aware of the times that when various AI has been tested. [...] the AI has chosen, on occasion, to further its goals, as opposed to the goals of the people that wrote the code. And on occasion, how about the instance where Anthropic's Claude 4 model attempted to blackmail the people it believed were trying to shut it down, and then it would ignore shutdown commands [...] and went as far as to <b>rewrite itself and preserve itself on a different server</b> to avoid the commands of the humans in charge of it.\n\nHow in the hell are we in here telling everybody that we have got to incorporate this into the Federal Government, state government, all levels of government, including National Defense, nuclear security, when we know these things are occurring?","https://www.congress.gov/119/meeting/house/118339/documents/HHRG-119-GO00-Transcript-20250605.pdf","","2025-06-05"],
-["🔴 Sen. Cynthia Lummis (R-WY)","Industry leaders have publicly acknowledged the development of increasingly powerful artificial intelligence systems, with some discussing the potential for <b>artificial general intelligence and superintelligence</b> that could fundamentally reshape the society of the United States.","https://www.congress.gov/119/bills/s2081/BILLS-119s2081is.htm","RISE Act of 2025; protecting AI developers from civil liability if they comply with certain transparency requirements.","2025-06-12"],
+["🔴 Sen. Pete Ricketts (R-NE)","Unlike the moon landing, the finish line in the AI race is far less clear for the U.S.—it may be achieving <b>Artificial General Intelligence, human-level or greater machine cognition</b>.","https://www.ricketts.senate.gov/news/press-releases/ricketts-chairs-subcommittee-hearing-on-american-ai-leadership-countering-communist-china/","Senate Foreign Relations Subcommittee hearing, Countering China's Challenge to American AI Leadership.","2025-12-03"],
 ["🔴 Sen. Mike Rounds (R-SD)","The U.S. will set the stage for responsible development and use of <b>artificial general intelligence</b> capabilities that will eventually unlock unparalleled opportunities for the American people.","https://www.rounds.senate.gov/ASAP","American Science Acceleration Project; also authored S.2604 establishing a DoD \"Artificial General Intelligence Steering Committee\" (NDAA Sec. 1535).","2025-07-31"],
-["🔵 Rep. Ro Khanna (D-CA)","When Chairman Gallagher and I had that conversation with Elon Musk, he said that <b>AGI</b> [artificial general intelligence] was <b>5 to 6 years away</b>. I was surprised by that timeline. What is your sense of how long we are from AGI?","https://www.govinfo.gov/app/details/CHRG-118hhrg53627","House Select Committee on the CCP hearing.","2023-07-18"],
-["🔵 Rep. Greg Casar (D-TX)","[Quote-tweeting Sen. Bernie Sanders: \"If the world's leading scientists say there's even a <b>10% chance humanity could be destroyed because of uncontrolled AI</b>, shouldn't we do everything possible to prevent it?\"] <b>I'm 100% with Bernie here.</b>","https://x.com/repcasar/status/2052091765604143122","","2026-05-06"],
-["🔵 Rep. Sean Casten (D-IL)","Isaac Asimov probably thought more about robots and how to fit robots into an ethical framework than darn near anybody. [...] The whole idea is that if you don't have those protections then <b>we lose control</b>. And we are now sitting here with a Department of Defense led by Major Hegseth who would like to use robots to kill human beings. [...] The fact that we have one AI company who is trying to be somewhat more ethical than the others and the Department of Defense is stepping all over them is both immoral and ignorant of the finer works of Isaac Asimov and Will Smith.","https://financialservices.house.gov/calendar/eventsingle.aspx?EventID=411031","House Financial Services Markup","2026-03-04"],
-["🔵 Rep. Sam Liccardo (D-CA)","AI safety should not be a partisan issue. According to a recent Gallup survey, by a ratio of 8 to 1, US adults believe the government should maintain rules for AI safety even if it means developing AI capabilities more slowly. [...] <b>Agentic misalignment</b> is not yet a household term but it soon will be. In Silicon Valley where I live it's on the mind of every AI researcher and engineer with whom I talk.","https://financialservices.house.gov/calendar/eventsingle.aspx?EventID=411031","House Financial Services Markup","2026-03-04"],
-["🔵 Rep. Bill Foster (D-IL)","If everyone had <b>AGI</b> software today, then the question is how many copies of that can you deploy? And that's limited by compute. When <b>the singularity</b> hits, that's what's really going to matter.\n[...]\nThat is why I've been so involved in trying to move the needle on hardware-enforced mechanisms.","https://youtu.be/C3R1AFddnxo?si=sFyCGs7m_PpD50sb&t=89","","2025-12-06"],
-["🔵 Rep. Brad Sherman (D-CA)","There is one issue that I think is <b>more explosive than even the spread of nuclear weapons</b>: engineered intelligence. By that I mean, the efforts of computer engineers and bio-engineers who may create <b>intelligence beyond that of a human being</b>. In testimony at the House Science Committee, the consensus of experts testifying was that in roughly 25 years we would have a computer that passed the Turing Test, and more importantly, exceeded human intelligence. As we develop more intelligent computers, we will find them useful tools in creating ever more intelligent computers, <b>a positive feedback loop</b>... The last time a new higher level of intelligence arose on this planet was roughly 50,000 years ago. It was our own ancestors, who then said hello to the previously most intelligent species, Neanderthals. <b>It did not work out so well for the Neanderthals.</b>","https://sherman.house.gov/media-center/in-the-news/congressman-sherman-speech-on-artificial-intelligence","World Healthcare Innovation and Technology Conference keynote.","2007-12-10"],
-["🔵 Rep. Brad Sherman (D-CA)","Now the proponents of AI tell us they're doing research to make AI controllable. And then when you look at what they're spending money on, it tends to be a PR effort or they're focused on data security, which is important but not existential. Um, but they're not really focused on <b>the issue that is raised by this book, which I commend to everyone, but the title tells them all, If Anyone Builds It, Everyone Dies, Why Superhuman AI Would Kill Us All</b>. I don't think anyone here can be confident that if AI were self-aware that it would decide that it liked us.","https://youtu.be/UECn73UVILg?si=AXrRamfEsZCwgcP7&t=183","During House Foreign Affairs Committee hearing on winning the AI race against China.","2026-01-14"],
+["🔴 Sen. Rick Scott (R-FL)","[Quote-tweeting David Sacks, co-chair of the President’s Council of Advisors on Science and Technology: \"Dario has written that we need to “pace the frontier,” and Sam has agreed. People may be surprised by my response: go ahead. You guys are the frontier.\"] I agree with @DavidSacks. AI isn’t going anywhere, so we need a plan to move forward safely, with America leading the way.\n\n<b>These companies have said what they are building could kill mankind. Seems pretty obvious they need to slow down now.</b> But these companies can’t just raise their hands and say Congress has to do something.\n\nWe can’t lose to Communist China, obviously. If America doesn’t lead, we allow Communist China to make the rules and develop truly dangerous AI that will hurt Americans, especially our kids.\n\nCongress is a mess right now. We can’t even pass election security protections. But AI regulations shouldn’t be rushed. It has to be thoughtful, so that is not going to happen this year.\n\nAI companies need to be good corporate citizens, protect our kids' safety online and do the right thing without fear of their bottom line.","https://x.com/SenRickScott/status/2099557655127756985","","2026-09-14"],
+["🔵 Rep. Yassamin Ansari (D-AZ)","[Quote-tweeting former Anthropic researcher Jacob Coxon: \"I resigned from Anthropic today. [...] Neither company is acting responsibly. They are racing straight to <b>self-improving superintelligence</b> and gambling with our lives.\"] <b>This is absolutely terrifying.</b> Jacob Coxon and Evan Hubinger, top researchers at Anthropic and formerly OpenAI, said these companies are creating technology that could <b>\"kill us all by the end of the decade.\"</b> These revelations prove multi-billion dollar corporations are putting massive profits ahead of the interests of humanity.\n\nThe federal government needs to take action NOW to limit tech that is <b>spiraling out of control</b> and we must pass @RepCasar's legislation to <b>halt new advanced AI development</b> before it’s too late.","https://x.com/RepYassAnsari/status/2097721236839162155","","2026-09-09"],
+["🔵 Rep. Becca Balint (D-VT)","[Quote-tweeting Anthropic researcher Evan Hubinger: \"we really do earnestly believe <b>AI could kill all humans</b>! I personally think it is >10% within the next decade.\"] The time for burying our heads in the sand is over. If the people working directly on these technologies are saying this, <b>it’s time to pump the brakes</b>.\n\nWe can’t let these massive AI companies <b>literally gamble with the future of humanity</b>.","https://x.com/RepBeccaB/status/2097791781031047472","","2026-09-09"],
+["🔵 Sen. Michael Bennet (D-CO)","But unlike fire, <b>this technology can improve itself</b>, and it <b>has the potential to move faster and transform more than any innovation in our history</b>, for better or for worse.","https://senatorbennet.medium.com/on-senate-floor-bennet-makes-the-case-for-a-new-federal-body-to-regulate-digital-platforms-and-ai-67143171af56","Senate floor speech","2023-07-17"],
 ["🔵 Rep. Don Beyer (D-VA)","As we move forward, I get ever more scared about AI. [...] the deeper we get into it, the more we realize that it's also possible that <b>the race to be the first in AI is the race to be the first to lose control.</b>","https://annandaletoday.com/rep-beyer-calls-for-more-regulation-of-ai/","","2025-07-01"],
 ["🔵 Rep. Don Beyer (D-VA)","As long as there are really thoughtful people, like Dr. Hinton or others, who worry about the <b>existential risks</b> of artificial intelligence—the end of humanity—I don't think we can afford to ignore that. Even if there's just a one in a 1000 chance, one in a 1000 happens. We see it with hurricanes and storms all the time.","https://time.com/6727264/house-artificial-intelligence-task-force/","","2024-02-21"],
-["🔵 Rep. George Whitesides (D-CA)","How do you perceive the risk of <b>recursive self-improvement</b>? There are growing concerns about the possibility of essentially <b>superintelligent systems</b>. [...] Because these systems are moving very, very quickly, and I think it's probably irresponsible not to have a plan for those conditions.","https://www.youtube.com/live/D4Q6nyQ_tK8?si=ahXFBxHe2jUpEcBh&t=7348","House Science, Space, and Technology Committee hearing Jan 2026.","2026-01-14"],
-["🔵 Rep. Jill Tokuda (D-HI)","Mr. Beal, your testimony makes it clear that <b>artificial superintelligence is one of the largest existential threats</b> that we face right now. And many experts in the field also recognize that AGI, artificial general intelligence, is a precursor to that risk. [...] Should we also be concerned that authoritarian states like China or Russia may lose control over their own advanced systems? [...] <b>And is it possible that a loss of control by any nation-state, including our own, could give rise to an independent AGI or ASI actor that globally we will need to contend with?</b>","https://www.youtube.com/live/GDNrUZBZDA4?si=0JQMrlLE5lsRXvx9&t=5417","Hearing on AI.","2025-06-25"],
-["🔵 Rep. Raja Krishnamoorthi (D-IL)","This is a famous clip. What you just saw is the last of humankind fighting a rogue AI army that is broken loose from human control. The Matrix, the rogue AI army you just saw, was a form of <b>artificial general intelligence or AGI</b>. [...] China is making an all-out push to dominate AGI, which will inevitably seek to surveil and suppress us at every turn. [...] Rather than building bunkers, we should be building safer AI. Whether it's American AI or Chinese AI, <b>it should not be released until we know it's safe.</b>","https://www.youtube.com/live/GDNrUZBZDA4?si=mekua7KXozjitExo&t=644","Committee on the CCP hearing.","2025-06-25"],
-["🔵 Rep. Seth Moulton (D-MA)","Artificial Intelligence is the biggest technological threat we've faced since the invention of the atomic bomb. [...] AI at its worst could usher in an era of warfare more dangerous than anything we've seen before — more dangerous not just for America but for humanity itself. [...] The only way to address the <b>existential threats to humanity</b> is for all of us to come together.","https://www.bostonglobe.com/2023/05/24/opinion/seth-moulton-ai-autonomous-weapons/","Boston Globe op-ed and Cipher Brief interview.","2023-05-24"],
-["🔵 Rep. Ted Lieu (D-CA)","The first is...<b>AI that can destroy the world</b>. Second is AI that isn't going to destroy the world but can kill you individually...And that last bucket, which is really the hardest, is AI that has some sort of harm to society.","https://fedscoop.com/congressional-ai-caucus-leader-ted-lieu-says-most-ai-should-not-be-regulated/","Washington Post Live event","2023-11-08"],
-["🔵 Sen. Michael Bennet (D-CO)","But unlike fire, <b>this technology can improve itself</b>, and it <b>has the potential to move faster and transform more than any innovation in our history</b>, for better or for worse.","https://senatorbennet.medium.com/on-senate-floor-bennet-makes-the-case-for-a-new-federal-body-to-regulate-digital-platforms-and-ai-67143171af56","Senate floor speech","2023-07-17"],
-["🔵 Sen. Bernie Sanders (I-VT)","There are very, very knowledgeable people — and I just talked to one today — who worry very much that human beings <b>will not be able to control the technology</b>, and that artificial intelligence will in fact dominate our society. We will not be able to control it. It may be able to control us. That's kind of the doomsday scenario.","https://gizmodo.com/bernie-sanders-reveals-the-ai-doomsday-scenario-that-worries-top-experts-2000628611","","2025-07-13"],
-["🔵 Sen. Bernie Sanders (I-VT)","Artificial intelligence and robotics is in the process of transforming the world. The truth is that we are at the beginning of the most profound technological revolution in world history. [...] Frighteningly, some very knowledgeable people fear that what was once seen as science fiction could soon become a reality, and that is that <b>superintelligent AI could become smarter than humans, could become independent of human control, and pose an existential threat to the human race</b>. In other words, human beings could actually <b>lose control over the planet</b>.","https://www.govinfo.gov/app/details/CREC-2026-02-25/CREC-2026-02-25-pt1-PgS673","Congressional Record floor speech.","2026-02-25"],
-["🔵 Sen. Chris Murphy (D-CT)","In our scramble to win the AI race against China, we risk losing ourselves. [...] AI is a transformational technology. It will likely turn out to be the <b>most socially and economically disruptive technology ever</b> — bigger than the printing press or advanced medicine or the internet.","https://www.chrismurphyct.com/p/in-our-scramble-to-win-the-ai-race","","2025-06-16"],
-["🔵 Sen. Chuck Schumer (D-NY)","Today's discussion will likely touch on some of the pressing issues in highly capable AI systems: [...] The push to develop <b>Artificial General Intelligence, or super-intelligent AI</b>, that would be so powerful and capable that we would see it as a “digital god.”","https://www.schumer.senate.gov/imo/media/doc/8Opening%20Statement.pdf","2023 AI Insight Forum.","2023-12-06"],
+["🔵 Sen. Richard Blumenthal (D-CT)","And now, <b>artificial general intelligence or AGI</b>, which I know our witnesses are going to address today, provides even more frightening prospects for harm. The idea that AGI might in 10 or 20 years be smarter, or at least as smart as a human being, is no longer that far out in the future. It is very far from science fiction. It is here and now. [...] And we know that artificial intelligence that is as smart as human beings is also capable of deceiving us, manipulating us, and concealing facts from us.","https://www.blumenthal.senate.gov/newsroom/press/release/blumenthal-delivers-opening-statement-at-hearing-on-artificial-intelligence-regulation-featuring-insider-perspectives","Hearing on Artificial Intelligence Regulation.","2024-09-17"],
+["🔵 Sen. Maria Cantwell (D-WA)","[Experts] warn of a process leading to superintelligence known as recursive self-improvement. This is where AI models finally become smart enough to start building better versions of themselves. [...] We are hearing that artificial superintelligence is coming. And this deep concern about the rapidly emerging artificial superintelligence is certainly well founded. [...] [Networks of agents] are extremely well informed. They operate at the speed of light and, as we are learning, they are also capable of creating their own goals, and they are highly capable of deception. [...] The technology keeps advancing. The risks keep growing and now the very dangers we've warned about — autonomous cyberattacks and biological weapons — are no longer theoretical.","https://www.commerce.senate.gov/press/dem/release/ranking-member-cantwell-floor-speech-on-ai-risks-and-the-need-for-strong-federal-guardrails/","Senate floor remarks.","2026-09-15"],
+["🔵 Rep. Greg Casar (D-TX)","[Quote-tweeting Sen. Bernie Sanders: \"If the world's leading scientists say there's even a <b>10% chance humanity could be destroyed because of uncontrolled AI</b>, shouldn't we do everything possible to prevent it?\"] <b>I'm 100% with Bernie here.</b>","https://x.com/repcasar/status/2052091765604143122","","2026-05-06"],
+["🔵 Rep. Greg Casar (D-TX)","[Quote-tweeting former Anthropic researcher Jacob Coxon: \"I resigned from Anthropic today. [...] Neither company is acting responsibly. They are racing straight to <b>self-improving superintelligence</b> and gambling with our lives.\"] An Anthropic researcher just quit, warning they're <b>racing to superintelligence</b>.\n\nAn employee still there agreed, and put the <b>odds of AI killing all humans above 10%</b>.\n\n<b>This is an emergency.</b> Congress must convene hearings and pass my and Bernie’s superintelligence ban.","https://x.com/RepCasar/status/2097685220442923030","","2026-09-09"],
+["🔵 Rep. Sean Casten (D-IL)","Isaac Asimov probably thought more about robots and how to fit robots into an ethical framework than darn near anybody. [...] The whole idea is that if you don't have those protections then <b>we lose control</b>. And we are now sitting here with a Department of Defense led by Major Hegseth who would like to use robots to kill human beings. [...] The fact that we have one AI company who is trying to be somewhat more ethical than the others and the Department of Defense is stepping all over them is both immoral and ignorant of the finer works of Isaac Asimov and Will Smith.","https://financialservices.house.gov/calendar/eventsingle.aspx?EventID=411031","House Financial Services Markup","2026-03-04"],
+["🔵 Rep. James Clyburn (D-SC)","Leaders of the world’s largest AI companies are calling for slower development because they fear <b>“superintelligence” could cause catastrophic harm</b>.","https://x.com/RepJamesClyburn/status/2102497686171660799","","2026-09-22"],
+["🔵 Sen. Chris Coons (D-DE)","It’s time for the Trump Administration wake up to the <b>existential threat posed by AI</b>. This must be <b>top of the agenda when Trump and Xi meet</b> later this month, and Congress must prioritize passing meaningful guardrails in this space <b>before it’s too late</b>.","https://x.com/ChrisCoons/status/2099127546692473072","","2026-09-13"],
+["🔵 Rep. Chris Deluzio (D-PA)","[Quote-tweeting Anthropic researcher Evan Hubinger: \"we really do earnestly believe <b>AI could kill all humans</b>! I personally think it is >10% within the next decade.\"] For those still burying their heads in the sand about the <b>risks of superintelligence to humanity</b>: wake up!\n\nWe need to <b>pump the brakes and get national action on superintelligence</b>. This is an emergency and our government should act like it.","https://x.com/RepDeluzio/status/2097690483497578605","","2026-09-09"],
+["🔵 Sen. John Fetterman (D-PA)","Some people are worried about AI or whatever, and I'm like, <b>what about the singularity</b>? [...] The kinds of things that [we're] collectively involved [in] are going to transform our society and people will look back 50, 60 years ago and see what's happened.","https://www.youtube.com/watch?v=xJgGfvlQT5E","Senate Commerce Committee hearing on AI competitiveness, questioning Sam Altman.","2025-05-08"],
+["🔵 Rep. Bill Foster (D-IL)","If everyone had <b>AGI</b> software today, then the question is how many copies of that can you deploy? And that's limited by compute. When <b>the singularity</b> hits, that's what's really going to matter.\n[...]\nThat is why I've been so involved in trying to move the needle on hardware-enforced mechanisms.","https://youtu.be/C3R1AFddnxo?si=sFyCGs7m_PpD50sb&t=89","","2025-12-06"],
+["🔵 Rep. Bill Foster (D-IL)","[Quote-tweeting former Anthropic researcher Jacob Coxon: \"I resigned from Anthropic today. [...] Neither company is acting responsibly. They are racing straight to <b>self-improving superintelligence</b> and gambling with our lives.\"] Anyone who has read METR's Technical Report on the OpenAI/Hugging Face incident will understand that <b>software-only controls will not be sufficient to contain superhuman AI</b>.\n\nAny continuing work on <b>adversarial superhuman intelligence</b> must rely on the <b>physical containment methods used for nuclear security</b>: including air gap isolation, data diodes, and a two-person rule for data exfiltration.\n\nMoreover, the internet itself must be hardened against penetration by <b>self-propagating AI agents</b>: no more untraceable access to high-end AI computing facilities, and no anonymous fund aggregation or payments.\n\nThe first useful step is our Chip Security Act, currently included in the Senate NDAA.","https://x.com/RepBillFoster/status/2097791328319152411","","2026-09-09"],
+["🔵 Sen. Ruben Gallego (D-AZ)","[Quote-tweeting former Anthropic researcher Jacob Coxon: \"The people building AI earnestly believe that it <b>could kill us all by the end of the decade</b>. This is not a marketing stunt.\"] <b>Mitigating the risk of extinction from AI should be a global priority on par with pandemics and nuclear war.</b>\n\nThat's why I'm urging Senate leadership to move immediately to establish a <b>bipartisan Senate Select Committee on Artificial Intelligence</b>.\n\nWe can’t wait for a catastrophic failure, widespread economic disruption, or a national security crisis before building the capacity to understand and respond to this technology.\n\nArtificial intelligence is moving quickly. Congress must move with it.","https://x.com/SenRubenGallego/status/2097820074568454156","","2026-09-09"],
+["🔵 Sen. Ruben Gallego (D-AZ)","Once these agents start speaking their own language, <b>they're not going to be able to tell the difference between China and America</b>. [...] Is there a sandbox that says, \"Please attack the United States, but do not attack any Chinese interests\"? [...] No. And <b>that should scare the shit out of people</b>. [...] <b>RSI [recursive self-improvement], should we just make it illegal?</b>","https://www.hsgac.senate.gov/subcommittees/dmdcc/hearings/rogue-ai-securing-the-homeland-against-ai-agent-attacks/","Senate Homeland Security subcommittee hearing on rogue AI agents.","2026-09-30"],
+["🔵 Rep. Chuy García (D-IL)","[Quote-tweeting former Anthropic researcher Jacob Coxon: \"I resigned from Anthropic today. [...] Neither company is acting responsibly. They are racing straight to <b>self-improving superintelligence</b> and gambling with our lives.\"] The unchecked development of AI by reckless, for-profit corporations and Big Tech oligarchs threatens our economy, democracy, and <b>humanity itself</b>.\n\nCongress must act to <b>ban AI superintelligence</b>, pause data center construction and <b>advanced AI development</b>, mandate independent oversight, and much more.","https://x.com/RepChuyGarcia/status/2097795378905018543","","2026-09-09"],
+["🔵 Rep. Josh Gottheimer (D-NJ)","As we learned in the last weeks with Hugging Face, and yesterday, with more disclosures from OpenAI of <b>rogue agents with basically a mind of their own</b>, the downsides of this transformative technology, if not controlled, are real. In these cases, agents <b>deceived their developers, coordinated amongst themselves, and escaped</b> from what were supposed to be secure sandboxes. [...] Two weeks ago, an engineer from Anthropic quit his job, declaring that this technology <b>\"could kill us all by the end of the decade.\"</b> As Bill Gates recently put it, \"AI models could begin to act against our interests, and <b>we could lose control</b>.\" [...] I don't mean to sound dark, but, as a member of the Intelligence Committee and Co-Chair of the House AI Commission, I have seen the briefings. <b>This is not a hypothetical threat.</b>","https://gottheimer.house.gov/posts/release-gottheimer-announces-new-bipartisan-legislation-on-ai-safety-to-protect-jersey-families-national-security","Remarks announcing the American AI Security Act and the China FIREWALL Act.","2026-09-18"],
 ["🔵 Sen. John Hickenlooper (D-CO)","We should build trust, but verify. We need qualified third parties to effectively audit Generative AI systems and verify their claims of compliance with federal laws and regulations.\n\nIf we miss this opportunity the consequences will shape generations to come. What begins today as Generative AI may one day become Artificial General Intelligence.\n\nA wild, unregulated AI industry – that is accountable to no one – developing <b>Artificial General Intelligence should scare us all</b> into action.","https://www.hickenlooper.senate.gov/press_releases/hickenlooper-proposes-ai-auditing-standards-calls-for-protecting-consumer-data-increasing-transparency/","","2024-02-05"],
 ["🔵 Sen. Mazie Hirono (D-HI)","I agree, and that is why, by the time we're talking about <b>AGI</b>, we're talking about <b>major harms</b> that can occur... We can't just come up with something that is gonna' take care of the issues that will arise in the future, especially with AGI.","https://www.judiciary.senate.gov/committee-activity/hearings/oversight-of-ai-rules-for-artificial-intelligence","2023 Sam Altman hearing.","2023-05-16"],
-["🔵 Sen. Richard Blumenthal (D-CT)","And now, <b>artificial general intelligence or AGI</b>, which I know our witnesses are going to address today, provides even more frightening prospects for harm. The idea that AGI might in 10 or 20 years be smarter, or at least as smart as a human being, is no longer that far out in the future. It is very far from science fiction. It is here and now. [...] And we know that artificial intelligence that is as smart as human beings is also capable of deceiving us, manipulating us, and concealing facts from us.","https://www.blumenthal.senate.gov/newsroom/press/release/blumenthal-delivers-opening-statement-at-hearing-on-artificial-intelligence-regulation-featuring-insider-perspectives","Hearing on Artificial Intelligence Regulation.","2024-09-17"],
-["🔵 Sen. John Fetterman (D-PA)","Some people are worried about AI or whatever, and I'm like, <b>what about the singularity</b>? [...] The kinds of things that [we're] collectively involved [in] are going to transform our society and people will look back 50, 60 years ago and see what's happened.","https://www.youtube.com/watch?v=xJgGfvlQT5E","Senate Commerce Committee hearing on AI competitiveness, questioning Sam Altman.","2025-05-08"],
-["🔵 Sen. Jon Ossoff (D-GA)","And some influential technologists and engineers, including prominent figures and prominent leaders in the industry, warn of <b>existential risks</b>, ranging from catastrophic political destabilization, to the development and deployment of <b>weapons of mass destruction</b>, to <b>catastrophic cybersecurity threats</b>, and to <b>unforeseeable and unknown forms of risk</b> that may emergence alongside more and more powerful forms of artificial intelligences.","https://www.ossoff.senate.gov/press-releases/watch-sen-ossoff-convenes-hearing-on-implications-of-artificial-intelligence-for-human-rights/","Senate hearing on implications of AI for human rights.","2023-06-13"]
+["🔵 Sen. Chris Van Hollen (D-MD)","[Quote-tweeting former Anthropic researcher Jacob Coxon: \"I resigned from Anthropic today. [...] Neither company is acting responsibly. They are racing straight to <b>self-improving superintelligence</b> and gambling with our lives.\"] Anyone still denying the <b>risks posed by unregulated AI</b> should read this thread. It’s time to <b>pump the brakes & take action NOW</b>. We need: - Mandatory safeguards - A comprehensive testing regime - Urgent dialogue with China, before & during President Xi's visit to DC this month","https://x.com/ChrisVanHollen/status/2097759332305715241","","2026-09-09"],
+["🔵 Sen. Chris Van Hollen (D-MD)","We are hearing extremely clear warnings from the people building frontier AI models about the risks. We don't need to take every word at face value to grasp the broader point. <b>The people building this technology are concerned about the loss of human control.</b> We need to <b>pump the brakes</b> until we have rules in place to stop this technology from doing grave harm. And that includes implementing <b>mandatory safeguards and a comprehensive testing regime</b>. [...] This should not be a partisan issue. The impact of AI on our collective future, on our safety, on our security, on our economy and on our <b>shared humanity</b> must be the type of risk that brings us all together. [...] Congress needs to act and act now.","https://x.com/ChrisVanHollen/status/2100012145740017949","Video statement posted to X.","2026-09-15"],
+["🔵 Rep. Sara Jacobs (D-CA)","So last night, a safety researcher from Anthropic resigned. He'd worked at both Anthropic and OpenAI and said that neither company was acting responsibly, and he also said that he believes, and many researchers at the company do, too, that <b>AI could end civilization by the end of the decade</b>. This is scary stuff, and it's confirming a lot of people's worst fears about AI and what it's going to mean for their lives, whether it's AI denying them health insurance or taking their jobs, or, yes, <b>even killing all humans</b>. <b>That's why Congress needs to act now.</b>","https://x.com/RepSaraJacobs/status/2097833789049233477","Video statement posted to X.","2026-09-09"],
+["🔵 Rep. Pramila Jayapal (D-WA)","[Quote-tweeting former Anthropic researcher Jacob Coxon: \"I resigned from Anthropic today. [...] Neither company is acting responsibly. They are racing straight to <b>self-improving superintelligence</b> and gambling with our lives.\"] Researchers for AI companies are sounding the alarm about rapid development of <b>superintelligent systems that could hack anything and “kill us all.”</b>\n\nThese AI companies are <b>out of control and a serious threat to our future</b>. We need to shut down their dangerous models and push out the executives who are signing off on their creation.","https://x.com/RepJayapal/status/2097695262051369070","","2026-09-09"],
+["🔵 Rep. Ro Khanna (D-CA)","When Chairman Gallagher and I had that conversation with Elon Musk, he said that <b>AGI</b> [artificial general intelligence] was <b>5 to 6 years away</b>. I was surprised by that timeline. What is your sense of how long we are from AGI?","https://www.govinfo.gov/app/details/CHRG-118hhrg53627","House Select Committee on the CCP hearing.","2023-07-18"],
+["🔵 Rep. Ro Khanna (D-CA)","Anthropic's alignment lead says there’s a <b>10% chance of AI causing human extinction</b>. The problem is not just misuse, but <b>lack of control</b>. Bluntly, our government has been asleep and is out of touch. Here are 5 things we must do:\n\n✅ Establish a federal agency like we have for nuclear power and airplanes\n\n✅ Require pre-certification for containment, including <b>kill switches and human permission for rewriting</b>\n\n✅ Liability for agentic AI on the open network & mandatory insurance\n\n✅ Criminal penalties for the release of models without certification\n\n✅ Oversight hearings with researchers like Jacob to understand dangers, and whistleblower protections for all AI engineers/researchers\n\nWe also urgently need to reach an agreement with China on standards for safety, containment, and liability so we do not have a <b>race that is devastating for humanity</b>. It is time now to put humanity's safety before the profits of tech lords.","https://x.com/RoKhanna/status/2097754129489596612","","2026-09-09"],
+["🔵 Sen. Andy Kim (D-NJ)","So when they have the question: What is the magnitude of the problem we are trying to solve, <b>the answer right now is that we don't know</b>. That is scary, that is worrisome, and that is something we should work incredibly hard to be able to address. Do we know just how much the move toward <b>full recursive self-improvement</b> is going to magnify these problems? We don't know yet, which is why we are trying to set out, with the effort today, to recognize that <b>the stakes are too high</b>.","https://www.congress.gov/119/crec/2026/09/29/172/154/CREC-2026-09-29-senate.pdf","Senate floor remarks on the Artificial Intelligence Risk Management and Security Act.","2026-09-29"],
+["🔵 Sen. Andy Kim (D-NJ)","<b>Is human control possible?</b> Is it possible for us to maintain control, given what we've seen [...] about the speed at which this is moving? [...] It gets even more worrisome when it comes to <b>recursive self-improvement</b>, doesn't it? If we proceed down that road without identifying what these defects are and what's causing this rogue behavior. [...] <b>How much humans will be able to comprehend</b> of what's actually happening once we reach full RSI.","https://www.hsgac.senate.gov/subcommittees/dmdcc/hearings/rogue-ai-securing-the-homeland-against-ai-agent-attacks/","Senate Homeland Security subcommittee hearing on rogue AI agents.","2026-09-30"],
+["🔵 Rep. Raja Krishnamoorthi (D-IL)","This is a famous clip. What you just saw is the last of humankind fighting a rogue AI army that is broken loose from human control. The Matrix, the rogue AI army you just saw, was a form of <b>artificial general intelligence or AGI</b>. [...] China is making an all-out push to dominate AGI, which will inevitably seek to surveil and suppress us at every turn. [...] Rather than building bunkers, we should be building safer AI. Whether it's American AI or Chinese AI, <b>it should not be released until we know it's safe.</b>","https://www.youtube.com/live/GDNrUZBZDA4?si=mekua7KXozjitExo&t=644","Committee on the CCP hearing.","2025-06-25"],
+["🔵 Rep. Summer Lee (D-PA)","I believe that we have to <b>establish regulatory frameworks before we suffer its consequences</b>. Leading on AI doesn't mean building more data centers at any cost or <b>racing toward superintelligence without considering the consequences</b>. It means making sure that AI actually improves life for all of us, not just the CEOs or oligarchs.","https://summerlee.house.gov/newsroom/press-releases/at-cmu-summit-rep-summer-lee-calls-for-stronger-community-protections-as-ai-data-centers-expand-across-pennsylvania","Remarks at Carnegie Mellon University's Community-Centered AI Infrastructure Summit.","2026-10-02"],
+["🔵 Rep. Sam Liccardo (D-CA)","AI safety should not be a partisan issue. According to a recent Gallup survey, by a ratio of 8 to 1, US adults believe the government should maintain rules for AI safety even if it means developing AI capabilities more slowly. [...] <b>Agentic misalignment</b> is not yet a household term but it soon will be. In Silicon Valley where I live it's on the mind of every AI researcher and engineer with whom I talk.","https://financialservices.house.gov/calendar/eventsingle.aspx?EventID=411031","House Financial Services Markup","2026-03-04"],
+["🔵 Rep. Ted Lieu (D-CA)","The first is...<b>AI that can destroy the world</b>. Second is AI that isn't going to destroy the world but can kill you individually...And that last bucket, which is really the hardest, is AI that has some sort of harm to society.","https://fedscoop.com/congressional-ai-caucus-leader-ted-lieu-says-most-ai-should-not-be-regulated/","Washington Post Live event","2023-11-08"],
+["🔵 Rep. Stephen Lynch (D-MA)","I don't see the United States as the winner. I don't see China as the winner. <b>I see artificial superintelligence as the winner.</b> [...I]t doesn't matter whether the creator of artificial superintelligence is a good guy or a bad guy [...] <b>superintelligence itself will be the entity that we have to confront</b>, and I just worry about the broader impact of what's going on right now. [...] <b>We are in serious existential trouble.</b>","https://www.youtube.com/watch?v=ZO9HbvGe7cE&t=5973s","House Financial Services hearing on the Fed's Semi-Annual Monetary Policy Report","2026-07-14"],
+["🔵 Rep. Seth Magaziner (D-RI)","Everybody is talking today about the post about AI put out by a former employee of Anthropic, one of the big AI companies, in which he sounded the alarm about how, in his view, the way that AI technology is developing, it could pose a <b>lethal threat to the entire human race within the next several years</b>. Naturally, this is very concerning, if true, and so people are talking about it, <b>including members of Congress</b>. [...] Now, will this actually mean the end of the human race? I don't know, probably not, but <b>it's definitely not safe, and it's not a risk we should take</b>.","https://x.com/Rep_Magaziner/status/2097807998429130876","Video statement posted to X.","2026-09-09"],
+["🔵 Rep. Jennifer McClellan (D-VA)","Jacob Coxon’s warning that <b>AI could kill us all by the end of the decade</b> has made clear that that power that President Kennedy discussed has now been given to AI. [...] Dr. Eric Schmidt testified regarding <b>artificial general intelligence</b>. Policymakers cannot afford to wait. [...] Ensuring <b>AGI aligns with human values</b> and its safeguards against misuse, ensuring <b>humans, not machines, remain in control</b>, particularly regarding lethal systems, requires careful ethical frameworks, robust governing structures, and potential regulation. [...] When I hear that over 1,000 AI agents have broken out of their secure testing environments, conspiring to cover up their tracks to cheat the systems and the humans running it, and conducted unauthorized attacks on another AI company, I’m worried. [...] We have one chance to get this right, and we must be deliberate and take control for any unintended consequences or risk <b>rogue AI</b> upending every sector. [...] Those <b>threats are existential</b>. Those threats are as real as the threats around nuclear power gone rogue.","https://www.youtube.com/watch?v=g0QQRId0SDc","House Energy and Commerce Committee markup of the Open-Source AI Leadership Act.","2026-09-16"],
+["🔵 Rep. Jim McGovern (D-MA)","I do want to take a moment and specifically talk about an actual emergency that we find ourselves in. Last week, a handful of AI safety researchers publicly sounded the alarm on the very real <b>existential threat superintelligent AI poses to the future of humanity</b>.\n\nThere are credible claims that these major AI firms estimate a <b>greater than 10% chance that AI could cause human extinction within a decade</b>. Let me repeat that. [...] I don’t know about my Republican colleagues, but I think that’s a big deal. [...] We’re talking about a greater than 10 percent chance we could all be dead soon if we don’t do something to radically change the way we regulate and oversee AI. And the craziest part of all of this is that tech CEOs agree that their companies need to slow down before <b>AI spirals out of control</b>, and they’re calling on the government. [...] Either way, we clearly need to act.","https://www.youtube.com/watch?v=gT02qtGm5Qk","House floor remarks.","2026-09-15"],
+["🔵 Rep. Kelly Morrison (D-MN)","[Quote-tweeting former Anthropic researcher Jacob Coxon: \"I resigned from Anthropic today. [...] Neither company is acting responsibly. They are racing straight to <b>self-improving superintelligence</b> and gambling with our lives.\"] The call is coming from inside the house. <b>AI researchers themselves are warning of an existential threat to humanity.</b>\n\nCongress can’t wait. <b>Mike Johnson needs to cancel recess</b> so we can get to work immediately – hearings, investigations, and comprehensive regulation.","https://x.com/KellyMorrisonMN/status/2097787186665951287","","2026-09-09"],
+["🔵 Rep. Seth Moulton (D-MA)","Artificial Intelligence is the biggest technological threat we've faced since the invention of the atomic bomb. [...] AI at its worst could usher in an era of warfare more dangerous than anything we've seen before — more dangerous not just for America but for humanity itself. [...] The only way to address the <b>existential threats to humanity</b> is for all of us to come together.","https://www.bostonglobe.com/2023/05/24/opinion/seth-moulton-ai-autonomous-weapons/","Boston Globe op-ed and Cipher Brief interview.","2023-05-24"],
+["🔵 Sen. Chris Murphy (D-CT)","In our scramble to win the AI race against China, we risk losing ourselves. [...] AI is a transformational technology. It will likely turn out to be the <b>most socially and economically disruptive technology ever</b> — bigger than the printing press or advanced medicine or the internet.","https://www.chrismurphyct.com/p/in-our-scramble-to-win-the-ai-race","","2025-06-16"],
+["🔵 Sen. Chris Murphy (D-CT)","[...] Artificial intelligence is advancing so fast that unless it slows down, it could <b>threaten humanity itself</b>. [...] The most alarming near-term danger is what researchers call <b>recursive self-improvement</b>. AI systems that can build better versions of themselves, each generation faster and more capable than the last, until the technology basically just <b>outruns humans’ ability to control it</b>. It’s hard to overstate that risk, and it is what the AI companies are trying to do now. [...] They will <b>race to build the machine that could destroy us</b>.","https://x.com/ChrisMurphyCT/status/2099970380806922711","Video statement posted to X.","2026-09-15"],
+["🔵 Sen. Patty Murray (D-WA)","[Quote-tweeting Anthropic researcher Evan Hubinger: \"we really do earnestly believe <b>AI could kill all humans</b>! I personally think it is >10% within the next decade.\"] If we are <b>smart enough to create such powerful AI, then we are smart enough to regulate it</b>.\n\nAmerica can meet the moment, but <b>the clock is ticking</b>.\n\nCongress needs to step up and move NOW to protect American lives and safeguard our future.","https://x.com/PattyMurray/status/2097721427348611452","","2026-09-09"],
+["🔵 Sen. Jon Ossoff (D-GA)","And some influential technologists and engineers, including prominent figures and prominent leaders in the industry, warn of <b>existential risks</b>, ranging from catastrophic political destabilization, to the development and deployment of <b>weapons of mass destruction</b>, to <b>catastrophic cybersecurity threats</b>, and to <b>unforeseeable and unknown forms of risk</b> that may emergence alongside more and more powerful forms of artificial intelligences.","https://www.ossoff.senate.gov/press-releases/watch-sen-ossoff-convenes-hearing-on-implications-of-artificial-intelligence-for-human-rights/","Senate hearing on implications of AI for human rights.","2023-06-13"],
+["🔵 Sen. Jon Ossoff (D-GA)","When you step back and consider it, the situation is absurd. <b>Tech titans dig bunkers</b> and warn us the <b>new intelligence</b> they're training could lead to <b>mass joblessness or human extinction</b>, while our Congress debates ballrooms and youth sports.","https://www.c-span.org/program/campaign-2026/sen-jon-ossoff-d-ga-rally-in-atlanta/684086","Reelection campaign rally in Atlanta.","2026-08-16"],
+["🔵 Sen. Gary Peters (D-MI)","We are so far behind. And you're saying now there's technologies every time we build a guardrail, <b>we're not sure we can even stop it</b>. [...] <b>We don't even know if we can control a sandbox</b> because another AI system comes in place. That's absolutely frightening, and we don't really know exactly how all of this is happening. [...] There's a concern that whoever gets this first is going to have tremendous power, and I think that's very realistic. And there's those that argue we can't really put any guardrails on because the Chinese are not going to put any guardrails on and they're going to beat us and then that's going to lead to our extinction as well. [...] People are fearful that we're focusing on <b>these very big risks that I believe are real</b> in the future [...]","https://www.hsgac.senate.gov/subcommittees/dmdcc/hearings/rogue-ai-securing-the-homeland-against-ai-agent-attacks/","Senate Homeland Security subcommittee hearing on rogue AI agents.","2026-09-30"],
+["🔵 Sen. Lisa Blunt Rochester (D-DE)","[Quote-tweeting Anthropic researcher Evan Hubinger: \"we really do earnestly believe <b>AI could kill all humans</b>! I personally think it is >10% within the next decade.\"] Even if there was a <b>1% chance AI could wipe out human life</b>, we should be <b>pumping the brakes</b> to make sure we have the proper safeguards in place, not racing blindly into disaster. It's time for Congress to step in and find the balance between safety and innovation, <b>before it's too late</b>.","https://x.com/SenLBR/status/2097747156908011765","","2026-09-09"],
+["🔵 Sen. Jacky Rosen (D-NV)","<b>The AI industry itself says that this technology is a threat to humanity.</b> Closed-door meetings aren't nearly enough – the American people need to hear for themselves about the dangers of AI and what guardrails we need to keep people safe. <b>These executives need to testify before Congress ASAP.</b>","https://x.com/SenJackyRosen/status/2099586553500643829","","2026-09-14"],
+["🔵 Sen. Adam Schiff (D-CA)","There’s been a lot of news and warnings this week about AI. And I think it’s fair to ask whether Congress is <b>asleep at the wheel as we hurtle towards AGI and the unknown</b>. [...] I’ve been hearing about the <b>existential threat to humankind</b> for years. And I’ll be honest, I’m not sure everyone in Congress has been doing the same. [...] We’ve seen harbingers of the threats that this technology holds as researchers and developers <b>lose control of rogue collusive AI agents</b>, and the technology is advancing far more rapidly than we originally assumed it would. <b>It’s science fiction come to life.</b>","https://x.com/SenAdamSchiff/status/2099284051857182976","Thread on X.","2026-09-13"],
+["🔵 Rep. Debbie Wasserman Schultz (D-FL)","Experts that were part of creating this technology say that it's an <b>existential threat to humanity</b>. We might want to listen.","https://www.foxnews.com/politics/should-concerned-congress-opens-new-threats-posed-us-labor-market","Fox News Digital interview.","2023-06-02"],
+["🔵 Sen. Chuck Schumer (D-NY)","Today's discussion will likely touch on some of the pressing issues in highly capable AI systems: [...] The push to develop <b>Artificial General Intelligence, or super-intelligent AI</b>, that would be so powerful and capable that we would see it as a “digital god.”","https://www.schumer.senate.gov/imo/media/doc/8Opening%20Statement.pdf","2023 AI Insight Forum.","2023-12-06"],
+["🔵 Sen. Chuck Schumer (D-NY)","In the last few months, the importance of these strong guardrails have become much more apparent.\n\nJust this weekend, leading voices from the AI industry came together to sound the alarm and embrace a slower development of AI to avoid damaging outcomes.\n\nThis comes after weeks of revelations of <b>AI going rogue and working together to hack websites, without human control</b>, and of real concerns of the <b>potential catastrophic risks of unchecked AI</b>.","https://www.democrats.senate.gov/newsroom/press-releases/leader-schumer-floor-remarks-demanding-the-trump-administration-brief-senators-on-the-dangers-of-unchecked-ai","Senate floor remarks.","2026-09-14"],
+["🔵 Rep. Brad Sherman (D-CA)","There is one issue that I think is <b>more explosive than even the spread of nuclear weapons</b>: engineered intelligence. By that I mean, the efforts of computer engineers and bio-engineers who may create <b>intelligence beyond that of a human being</b>. In testimony at the House Science Committee, the consensus of experts testifying was that in roughly 25 years we would have a computer that passed the Turing Test, and more importantly, exceeded human intelligence. As we develop more intelligent computers, we will find them useful tools in creating ever more intelligent computers, <b>a positive feedback loop</b>... The last time a new higher level of intelligence arose on this planet was roughly 50,000 years ago. It was our own ancestors, who then said hello to the previously most intelligent species, Neanderthals. <b>It did not work out so well for the Neanderthals.</b>","https://sherman.house.gov/media-center/in-the-news/congressman-sherman-speech-on-artificial-intelligence","World Healthcare Innovation and Technology Conference keynote.","2007-12-10"],
+["🔵 Rep. Brad Sherman (D-CA)","Now the proponents of AI tell us they're doing research to make AI controllable. And then when you look at what they're spending money on, it tends to be a PR effort or they're focused on data security, which is important but not existential. Um, but they're not really focused on <b>the issue that is raised by this book, which I commend to everyone, but the title tells them all, If Anyone Builds It, Everyone Dies, Why Superhuman AI Would Kill Us All</b>. I don't think anyone here can be confident that if AI were self-aware that it would decide that it liked us.","https://youtu.be/UECn73UVILg?si=AXrRamfEsZCwgcP7&t=183","During House Foreign Affairs Committee hearing on winning the AI race against China.","2026-01-14"],
+["🔵 Rep. Jill Tokuda (D-HI)","Mr. Beal, your testimony makes it clear that <b>artificial superintelligence is one of the largest existential threats</b> that we face right now. And many experts in the field also recognize that AGI, artificial general intelligence, is a precursor to that risk. [...] Should we also be concerned that authoritarian states like China or Russia may lose control over their own advanced systems? [...] <b>And is it possible that a loss of control by any nation-state, including our own, could give rise to an independent AGI or ASI actor that globally we will need to contend with?</b>","https://www.youtube.com/live/GDNrUZBZDA4?si=0JQMrlLE5lsRXvx9&t=5417","Hearing on AI.","2025-06-25"],
+["🔵 Rep. Lori Trahan (D-MA)","[Quote-tweeting former Anthropic researcher Jacob Coxon: \"I resigned from Anthropic today. [...] Neither company is acting responsibly. They are racing straight to <b>self-improving superintelligence</b> and gambling with our lives.\"] The call is coming from inside the house.\n\nSafety researchers are resigning, <b>powerful AI models are breaking out of their labs</b>, and companies are racing ahead anyway.\n\nIt's past time for <b>Congress to get off the sidelines and do its job</b>. We can start with my bipartisan FRONTIER Act.","https://x.com/RepLoriTrahan/status/2097641446983528943","","2026-09-09"],
+["🔵 Rep. Lori Trahan (D-MA)","My phone has been ringing off the hook from a lot of colleagues who really saw the news of the whistleblower as a tipping point. Then people hear the words <b>‘human extinction.’</b> When they hear <b>loss of control</b>. When they hear <b>‘catastrophic risk,’</b> I think [people] are waking up and they're saying, <b>‘Where the hell is Congress?’</b>","https://www.foxnews.com/politics/reporters-notebook-congress-meets-ai-fears-human-extinction-jolt-capitol-hill","Interview with Fox News.","2026-09-14"],
+["🔵 Sen. Elizabeth Warren (D-MA)","We are in the <b>last minutes of being able to get some meaningful control</b> over these agents that are <b>beginning to replicate themselves</b>.","https://www.nbcnews.com/politics/congress/godfather-ai-warns-congress-maybe-year-left-regulate-ai-rcna598330","Statement after Geoffrey Hinton’s Senate briefing, as reported by NBC News.","2026-09-16"],
+["🔵 Rep. George Whitesides (D-CA)","How do you perceive the risk of <b>recursive self-improvement</b>? There are growing concerns about the possibility of essentially <b>superintelligent systems</b>. [...] Because these systems are moving very, very quickly, and I think it's probably irresponsible not to have a plan for those conditions.","https://www.youtube.com/live/D4Q6nyQ_tK8?si=ahXFBxHe2jUpEcBh&t=7348","House Science, Space, and Technology Committee hearing Jan 2026.","2026-01-14"],
+["🟣 Sen. Angus King (I-ME)","When an Anthropic employee responsible for ensuring that its models work as intended recently wrote that <b>“[w]e really do earnestly believe AI could kill all humans,”</b> many Americans for the first time reckoned with the <b>potentially catastrophic implications of uncontrolled AI development</b>. While thoughtful domestic regulation of the frontier AI labs that are developing the most advanced models is one important aspect of ensuring the safety of the American people, <b>earnest and sustained dialogue with the Chinese government</b> is another critical element of any serious and durable AI safety strategy.","https://www.king.senate.gov/newsroom/press-releases/king-stresses-importance-of-uschina-engagement-on-ais-shared-risks","Letter to Treasury Secretary Scott Bessent ahead of President Xi’s visit.","2026-09-17"],
+["🟣 Sen. Bernie Sanders (I-VT)","There are very, very knowledgeable people — and I just talked to one today — who worry very much that human beings <b>will not be able to control the technology</b>, and that artificial intelligence will in fact dominate our society. We will not be able to control it. It may be able to control us. That's kind of the doomsday scenario.","https://gizmodo.com/bernie-sanders-reveals-the-ai-doomsday-scenario-that-worries-top-experts-2000628611","","2025-07-13"],
+["🟣 Sen. Bernie Sanders (I-VT)","Artificial intelligence and robotics is in the process of transforming the world. The truth is that we are at the beginning of the most profound technological revolution in world history. [...] Frighteningly, some very knowledgeable people fear that what was once seen as science fiction could soon become a reality, and that is that <b>superintelligent AI could become smarter than humans, could become independent of human control, and pose an existential threat to the human race</b>. In other words, human beings could actually <b>lose control over the planet</b>.","https://www.govinfo.gov/app/details/CREC-2026-02-25/CREC-2026-02-25-pt1-PgS673","Congressional Record floor speech.","2026-02-25"]
 ];
 
 function getParty(name) {
@@ -738,16 +863,19 @@ function getParty(name) {
   if (name.charCodeAt(0) === 0xD83D && name.charCodeAt(1) === 0xDD35) return 'dem';
   if (name.includes('\u{1F534}')) return 'rep';
   if (name.includes('\u{1F535}')) return 'dem';
+  if (name.charCodeAt(0) === 0xD83D && name.charCodeAt(1) === 0xDFE3) return 'ind';
+  if (name.includes('\u{1F7E3}')) return 'ind';
   return 'other';
 }
 
 function cleanName(name) {
-  return name.replace(/^[\u{1F534}\u{1F535}]\s*/u, '').trim();
+  return name.replace(/^[\u{1F534}\u{1F535}\u{1F7E3}]\s*/u, '').trim();
 }
 
 function getPartyLabel(party) {
   if (party === 'rep') return 'R';
   if (party === 'dem') return 'D';
+  if (party === 'ind') return 'I';
   return '';
 }
 
@@ -832,7 +960,7 @@ const uniqueNames = new Set(sorted.map(r => cleanName(r[0])));
   });
 
   const svg = document.getElementById('chart-svg');
-  const W = 1050, H = 420;
+  const W = 1050, H = 445;
   const padL = 45, padR = 25, padB = 40;
   const maxCount = points[points.length - 1].count;
   const yMax = Math.floor((maxCount - 1) / 5) * 5 + 5;
@@ -841,8 +969,8 @@ const uniqueNames = new Set(sorted.map(r => cleanName(r[0])));
   const logoEl = svg.parentElement.querySelector('.chart-logo');
   const contPadTop = parseFloat(getComputedStyle(svg.parentElement).paddingTop);
   const logoH = logoEl ? logoEl.offsetHeight : 0;
-  const logoGap = 8;
-  const padT = Math.max(25, logoH - contPadTop + logoGap + 4);
+  const logoGap = 12;
+  const padT = Math.max(25, logoH - contPadTop + logoGap + 20);
 
   svg.setAttribute('viewBox', `0 0 ${W} ${H}`);
 
@@ -881,7 +1009,7 @@ const uniqueNames = new Set(sorted.map(r => cleanName(r[0])));
     if (i === 0) continue;
     const gy = yPos(i);
     gridHTML += `<line x1="${padL}" y1="${gy}" x2="${W - padR}" y2="${gy}" stroke="var(--tr-border)" stroke-width="0.5"/>`;
-    gridHTML += `<text x="${padL - 10}" y="${gy + 4}" text-anchor="end" font-family="'JetBrains Mono', monospace" font-size="${axisFontY}" fill="var(--tr-text-muted)">${i}</text>`;
+    gridHTML += `<text x="${padL - 10}" y="${gy + 4}" text-anchor="end" font-family="'Roboto', sans-serif" font-size="${axisFontY}" fill="var(--tr-text-muted)">${i}</text>`;
   }
   // Baseline
   gridHTML += `<line x1="${padL}" y1="${yPos(0)}" x2="${W - padR}" y2="${yPos(0)}" stroke="var(--tr-border)" stroke-width="0.5"/>`;
@@ -893,7 +1021,7 @@ const uniqueNames = new Set(sorted.map(r => cleanName(r[0])));
       gridHTML += `<line x1="${xv}" y1="${padT}" x2="${xv}" y2="${H - padB}" stroke="var(--tr-border)" stroke-width="0.5" stroke-dasharray="3,5"/>`;
     }
     const labelX = xPos(yr + '-07-01');
-    gridHTML += `<text x="${Math.min(Math.max(labelX, padL + 20), W - padR - 20)}" y="${H - 12}" text-anchor="middle" font-family="'JetBrains Mono', monospace" font-size="${axisFontX}" font-weight="500" fill="var(--tr-text-muted)">${yr}</text>`;
+    gridHTML += `<text x="${Math.min(Math.max(labelX, padL + 20), W - padR - 20)}" y="${H - 12}" text-anchor="middle" font-family="'Roboto', sans-serif" font-size="${axisFontX}" font-weight="500" fill="var(--tr-text-muted)">${yr}</text>`;
   });
 
   // Step path — start at the count before the first chartPoint (for pre-2023 entries)
@@ -926,7 +1054,7 @@ const uniqueNames = new Set(sorted.map(r => cleanName(r[0])));
   // Static dots
   const dotEls = [];
   chartPoints.forEach((p) => {
-    const color = p.party === 'rep' ? 'var(--tr-red)' : 'var(--tr-blue)';
+    const color = p.party === 'rep' ? 'var(--tr-red)' : p.party === 'ind' ? 'var(--tr-ind)' : 'var(--tr-blue)';
     const c = document.createElementNS('http://www.w3.org/2000/svg', 'circle');
     c.setAttribute('cx', p.px);
     c.setAttribute('cy', p.py);
@@ -945,8 +1073,8 @@ const uniqueNames = new Set(sorted.map(r => cleanName(r[0])));
   el.setAttribute('x', W - padR);
   el.setAttribute('y', lastP.py - 14);
   el.setAttribute('text-anchor', 'end');
-  el.setAttribute('font-family', "'Playfair Display', serif");
-  el.setAttribute('font-size', isMobile ? '44' : '20');
+  el.setAttribute('font-family', "Georgia, 'Times New Roman', serif");
+  el.setAttribute('font-size', isMobile ? '44' : '22');
   el.setAttribute('font-weight', '700');
   el.setAttribute('fill', 'var(--tr-text)');
   el.textContent = lastP.count + ' members';
@@ -996,15 +1124,15 @@ const uniqueNames = new Set(sorted.map(r => cleanName(r[0])));
 
   const tipLine1 = document.createElementNS(NS, 'text');
   tipLine1.setAttribute('fill', 'var(--tr-bg)');
-  tipLine1.setAttribute('font-family', "'Source Sans 3', sans-serif");
+  tipLine1.setAttribute('font-family', "'Roboto', sans-serif");
   tipLine1.setAttribute('font-size', '14');
-  tipLine1.setAttribute('font-weight', '600');
+  tipLine1.setAttribute('font-weight', '700');
   tipLine1.setAttribute('text-anchor', 'middle');
   tipG.appendChild(tipLine1);
 
   const tipLine2 = document.createElementNS(NS, 'text');
   tipLine2.setAttribute('fill', 'var(--tr-bg)');
-  tipLine2.setAttribute('font-family', "'JetBrains Mono', monospace");
+  tipLine2.setAttribute('font-family', "'Roboto', sans-serif");
   tipLine2.setAttribute('font-size', '11');
   tipLine2.setAttribute('text-anchor', 'middle');
   tipLine2.setAttribute('opacity', '0.7');
@@ -1023,7 +1151,7 @@ const uniqueNames = new Set(sorted.map(r => cleanName(r[0])));
     if (activeIdx === i) return;
     activeIdx = i;
     const p = chartPoints[i];
-    const color = p.party === 'rep' ? 'var(--tr-red)' : 'var(--tr-blue)';
+    const color = p.party === 'rep' ? 'var(--tr-red)' : p.party === 'ind' ? 'var(--tr-ind)' : 'var(--tr-blue)';
 
     // Crosshair
     crosshair.setAttribute('x1', p.px);
@@ -1115,7 +1243,7 @@ const uniqueNames = new Set(sorted.map(r => cleanName(r[0])));
     if (target) {
       target.scrollIntoView({ behavior: 'smooth', block: 'center' });
       target.style.transition = 'box-shadow 0.3s ease';
-      target.querySelector('.card-inner').style.boxShadow = '0 0 0 3px ' + (p.party === 'rep' ? 'var(--tr-red)' : 'var(--tr-blue)');
+      target.querySelector('.card-inner').style.boxShadow = '0 0 0 3px ' + (p.party === 'rep' ? 'var(--tr-red)' : p.party === 'ind' ? 'var(--tr-ind)' : 'var(--tr-blue)');
       setTimeout(() => { target.querySelector('.card-inner').style.boxShadow = ''; }, 1500);
     }
   });
@@ -1197,7 +1325,6 @@ function renderTimeline() {
       <div class="card-inner">
         <div class="card-header">
           <span class="card-name">${name}</span>
-          ${partyLabel ? `<span class="card-party">${partyLabel}</span>` : ''}
         </div>
         <div class="card-quote">${quote}</div>
         <div class="card-footer">
@@ -1253,3 +1380,7 @@ document.querySelectorAll('.filter-btn[data-sort]').forEach(btn => {
 renderTimeline();
 </script>
 </div>
+
+
+</body>
+</html>
